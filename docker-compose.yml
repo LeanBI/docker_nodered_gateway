@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   db:
     image: "mausch/postgres-madlib:latest"
@@ -13,13 +13,13 @@ services:
      - db
   
   openscoring:
-    image: "openscoring:latest"
+    image: "jpmml/openscoring"
     ports:
      - "8080:11002"
      
   pgadmin:
     image: "meedan/pgadmin"
-    ports:
+    ports: 
      - "5050:11003"
     depends_on:
      - db
