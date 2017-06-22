@@ -1,0 +1,16 @@
+version: '2'
+services:
+  nodered:
+    image: "leanbi/docker_nodered_gateway_nodered:latest"
+    ports:
+     - "1880:11000"
+
+  db:
+    image: "postgres-madlib:latest"
+    ports:
+     - "5432:11002"
+  
+  openscoring:
+    image: "openscoring:latest"
+    ports:
+     - "8080:11003"
