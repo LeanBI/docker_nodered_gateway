@@ -5,4 +5,5 @@ RUN npm i postgrestor \
   && npm install thethingbox-node-timestamp \
   && npm install node-red-contrib-opentimestamps \
   && npm install node-red-contrib-moment \
+  && npm install node-red-dashboard \
   
