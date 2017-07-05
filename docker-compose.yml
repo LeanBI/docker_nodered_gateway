@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: "mausch/postgres-madlib:latest"
+    image: "madlib/postgres_9.6"
     ports:
      - "5432:11000"
      
