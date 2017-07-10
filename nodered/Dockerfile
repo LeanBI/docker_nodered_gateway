@@ -40,4 +40,5 @@ COPY flows.json /data/flows.json
 COPY flows_cred.json /data/flows_cred.json
 ############## PART from LEANBI
 
-CMD ["npm", "start", "--", "--userDir", "/data"]
+#CMD ["npm", "start", "--", "--userDir", "/data"]
+CMD ["/usr/src/node-red/node_modules/.bin/node-red"]
