@@ -7,3 +7,5 @@ RUN npm i postgrestor \
   && npm install node-red-contrib-moment \
   && npm install node-red-dashboard \
   
+COPY flows.json /Data/flows.json
+COPY flows_cred.json /Data/flows_cred.json
