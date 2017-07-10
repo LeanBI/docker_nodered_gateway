@@ -36,8 +36,8 @@ RUN npm i postgrestor \
   && npm install node-red-dashboard \
   && npm install node-red-node-sqlite 
   
-COPY flows.json /Data/flows.json
-COPY flows_cred.json /Data/flows_cred.json
+COPY flows.json /data/flows.json
+COPY flows_cred.json /data/flows_cred.json
 ############## PART from LEANBI
 
 CMD ["npm", "start", "--", "--userDir", "/data"]
