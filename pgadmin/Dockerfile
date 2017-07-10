@@ -1,0 +1,1 @@
+FROM meedan/pgadmin

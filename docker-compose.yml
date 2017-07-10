@@ -1,25 +1,37 @@
-version: '3'
+version: '4'
 services:
   db:
-    image: "madlib/postgres_9.6"
+    image: "leanbi/madlib_postgres"
     ports:
-     - "5432:11000"
+     - "11000:5432"
+    networks:
+     gateway:
+        aliases:
+        - db
      
   nodered:
     image: "leanbi/docker_nodered_gateway_nodered:latest"
     ports:
-     - "1880:11001"
-    depends_on:
-     - db
+     - "11001:1880"
+    networks:
+     gateway:
+        aliases:
+        - nodered
   
   openscoring:
     image: "jpmml/openscoring"
     ports:
-     - "8080:11002"
+     - "11002:8080"
      
   pgadmin:
     image: "meedan/pgadmin"
     ports: 
-     - "5050:11003"
-    depends_on:
-     - db
+     - "11003:5050"
+    networks:
+     gateway:
+        aliases:
+        - pgadmin
+
+networks:
+  gateway:
+#docker rm -f  $(docker ps -a -q -f name=desktop* )
