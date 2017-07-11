@@ -34,7 +34,9 @@ services:
      gateway:
         aliases:
         - pgadmin
+    volumes:
+      - d:/pgadmin:/home/pgadmin
 
 networks:
   gateway:
-#docker rm -f  $(docker ps -a -q -f name=desktop* )
+#docker rm -f  $(docker ps -a -q -f name=dockernodered* )

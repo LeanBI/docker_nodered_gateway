@@ -1,23 +1,24 @@
 CREATE EXTENSION madlib CASCADE;
+    CREATE USER admin;
+	CREATE TABLE public.measures
+	(
+	    "timestamp" timestamp without time zone,
+	    totalmem bigint,
+	    freemem bigint,
+	    memusage numeric,
+	    cpus_0_speed numeric,
+	    cpus_0_sys numeric,
+	    cpus_1_speed numeric,
+	    cpus_1_sys numeric,
+	    cpus_1_idle numeric,
+	    loadavg_0 numeric,
+	    loadavg_1 numeric,
+	    loadavg_2 numeric,
+	    prediction numeric
+	)
+	WITH (
+	    OIDS = FALSE
+	)
+	TABLESPACE pg_default;
+	
 
---
-CREATE DATABASE iot
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'en_US.utf8'
-    LC_CTYPE = 'en_US.utf8'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
---    
-CREATE TABLE public.measures
-(
-    "timestamp" timestamp without time zone DEFAULT now()
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
-
-ALTER TABLE public.measures
-    OWNER to postgres;

@@ -1,6 +1,5 @@
-initdb.d/init-user-db.sh:
-
 #!/bin/bash
+#initdb.d/init-user-db.sh:
 set -e
 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL

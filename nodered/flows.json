@@ -1,1 +1,910 @@
-[{"id":"cc040e90.f2572","type":"tab","label":"Flow 1"},{"id":"9aa2a6ad.cf1138","type":"tab","label":"Flow 2"},{"id":"266900e7.80186","type":"postgresDB","z":"","name":"db","host":"db","port":"5432","database":"iot","ssl":false,"max":"10","min":1,"idle":"1000"},{"id":"70ac804.af5e28","type":"postgresdb","z":"","hostname":"db","port":"5432","db":"iot","ssl":false},{"id":"476badca.a1a554","type":"debug","z":"cc040e90.f2572","name":"","active":true,"console":"true","complete":"true","x":727.5,"y":664,"wires":[]},{"id":"129c2f4d.57d4e1","type":"CPUs","z":"cc040e90.f2572","name":"cpu","x":392,"y":820,"wires":[["7307da64.fd1c54"]]},{"id":"6b3e744b.f0badc","type":"Loadavg","z":"cc040e90.f2572","name":"load","x":378,"y":866,"wires":[["7307da64.fd1c54"]]},{"id":"6c63c811.88f878","type":"Memory","z":"cc040e90.f2572","name":"mem","x":379,"y":903,"wires":[["7307da64.fd1c54"]]},{"id":"bad17e7c.d9fbd","type":"inject","z":"cc040e90.f2572","name":"","topic":"","payload":"","payloadType":"date","repeat":"1","crontab":"","once":false,"x":96,"y":723,"wires":[["c4ff3de2.26278"]]},{"id":"7307da64.fd1c54","type":"join","z":"cc040e90.f2572","name":"","mode":"custom","build":"merged","property":"payload","propertyType":"msg","key":"name","joiner":"\\n","timeout":"","count":"3","x":533.5,"y":865,"wires":[["d8ccfd01.a2ff4"]]},{"id":"a85a3c01.5f8ef","type":"join","z":"cc040e90.f2572","name":"","mode":"custom","build":"array","property":"payload","propertyType":"msg","key":"topic","joiner":"\\n","timeout":"","count":"2","x":732.5,"y":865,"wires":[["dd4b0504.f411c8","476badca.a1a554"]]},{"id":"dd4b0504.f411c8","type":"function","z":"cc040e90.f2572","name":"","func":"var arrayLength = msg.payload.length;\ntable=\"measures\"\nsql=\"\"\nsql_keys=\"\"\nsql_values=\"\"\nfor (var i = 0; i < arrayLength; i++) {\n    obj=msg.payload[i]\n    sql+=\" INSERT INTO \" + table\n    \n    //iterate\n    keys=Object.keys(msg.payload[i])\n    if (i===0) {// compute only columns at first line\n    for (var k=0 ; k < keys.length ; k++ ){\n        if (sql_keys!==\"\"){\n            sql_keys+=\",\"\n            sql_values+=\",\"\n        }\n        sql_keys+=keys[k]\n        node.log(\"key=\" + keys[k])\n        if (keys[k]==\"timestamp\"){\n            sql_values+=\"'\" + msg.payload[i][keys[k]] +\"'\"\n        } else {\n            sql_values+=msg.payload[i][keys[k]]\n        }\n    }}\n    sql+=\" (\" + sql_keys +\") VALUES (\" + sql_values + \");\\n\"\n}\n\nreturn { payload : sql }","outputs":1,"noerr":0,"x":854.5,"y":864,"wires":[["f4f253c.ae923b","91c7b58.fc2c148"]]},{"id":"d8ccfd01.a2ff4","type":"change","z":"cc040e90.f2572","name":"","rules":[{"t":"set","p":"payload.cpus_0_speed","pt":"msg","to":"payload.cpus.0.speed","tot":"msg"},{"t":"set","p":"payload.cpus_1_speed","pt":"msg","to":"payload.cpus.1.speed","tot":"msg"},{"t":"delete","p":"payload.cpus","pt":"msg"},{"t":"set","p":"payload.loadavg_0","pt":"msg","to":"payload.loadavg.0","tot":"msg"},{"t":"set","p":"payload.loadavg_1","pt":"msg","to":"payload.loadavg.1","tot":"msg"},{"t":"set","p":"payload.loadavg_2","pt":"msg","to":"payload.loadavg.2","tot":"msg"},{"t":"delete","p":"payload.loadavg","pt":"msg"},{"t":"set","p":"payload.timestamp","pt":"msg","to":"timestamp","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":615.5,"y":937,"wires":[["a85a3c01.5f8ef"]]},{"id":"b5948d2.354e27","type":"timestamp","z":"9aa2a6ad.cf1138","name":"test","x":178.5,"y":323,"wires":[["e4f9c86e.bcef48"]]},{"id":"e4f9c86e.bcef48","type":"debug","z":"9aa2a6ad.cf1138","name":"","active":true,"console":"false","complete":"false","x":411.5,"y":322,"wires":[]},{"id":"4e63d8ea.6a5608","type":"inject","z":"9aa2a6ad.cf1138","name":"","topic":"","payload":"","payloadType":"str","repeat":"","crontab":"","once":false,"x":80.5,"y":242,"wires":[["b5948d2.354e27"]]},{"id":"c4ff3de2.26278","type":"moment","z":"cc040e90.f2572","name":"","topic":"","input":"payload","inputType":"msg","inTz":"UTC","adjAmount":0,"adjType":"days","adjDir":"add","format":"","locale":"POSIX","output":"timestamp","outputType":"msg","outTz":"UTC","x":187.5,"y":821,"wires":[["129c2f4d.57d4e1","6b3e744b.f0badc","6c63c811.88f878"]]},{"id":"91c7b58.fc2c148","type":"debug","z":"cc040e90.f2572","name":"sql output","active":true,"console":"true","complete":"true","x":1078.5,"y":792,"wires":[]},{"id":"40a9525d.0af82c","type":"json","z":"cc040e90.f2572","name":"","x":1203.5,"y":870,"wires":[[]]},{"id":"f4f253c.ae923b","type":"postgres","z":"cc040e90.f2572","postgresdb":"70ac804.af5e28","name":"","output":true,"outputs":1,"x":996.5,"y":919,"wires":[["40a9525d.0af82c"]]}]
+[
+    {
+        "id": "cc040e90.f2572",
+        "type": "tab",
+        "label": "Collect Data",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9aa2a6ad.cf1138",
+        "type": "tab",
+        "label": "Train Model",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a899a7cb.ba5888",
+        "type": "tab",
+        "label": "Evaluate",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4456c24d.1b6d3c",
+        "type": "tab",
+        "label": "Real Time Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a99e64a2.d57e48",
+        "type": "tab",
+        "label": "Historian",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "266900e7.80186",
+        "type": "postgresDB",
+        "z": "",
+        "name": "db",
+        "host": "db",
+        "port": "5432",
+        "database": "iot",
+        "ssl": false,
+        "max": "10",
+        "min": 1,
+        "idle": "1000"
+    },
+    {
+        "id": "70ac804.af5e28",
+        "type": "postgresdb",
+        "z": "",
+        "hostname": "db",
+        "port": "5432",
+        "db": "iot",
+        "ssl": false
+    },
+    {
+        "id": "a7188bcb.7e9218",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#004762",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#004762",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#007eae",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#004762",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "LeanPredict IOT",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3088169e.2d672a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Model",
+        "icon": "dashboard",
+        "order": 3
+    },
+    {
+        "id": "c05d9d5b.8a809",
+        "type": "ui_group",
+        "z": "",
+        "name": "Train",
+        "tab": "3088169e.2d672a",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "54951a88.d93594",
+        "type": "ui_group",
+        "z": "",
+        "name": "Evaluate",
+        "tab": "3088169e.2d672a",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "d45fff38.2540a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Real-Time Dashboard",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "51d28439.f5869c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Historian",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "6dffe5bf.8966bc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Search",
+        "tab": "51d28439.f5869c",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "90b744ed.ba1028",
+        "type": "ui_group",
+        "z": "",
+        "name": "Charts_1",
+        "tab": "51d28439.f5869c",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "170e7cec.458543",
+        "type": "ui_group",
+        "z": "",
+        "name": "Charts_2",
+        "tab": "51d28439.f5869c",
+        "order": 3,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "e077bb6f.25a078",
+        "type": "ui_group",
+        "name": "Group 4",
+        "tab": "51d28439.f5869c",
+        "order": 4,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "f1a87ed8.ae453",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "d45fff38.2540a",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "6954d8b6.ab5698",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "d45fff38.2540a",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "476badca.a1a554",
+        "type": "debug",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "active": true,
+        "console": "true",
+        "complete": "true",
+        "x": 727.5,
+        "y": 664,
+        "wires": []
+    },
+    {
+        "id": "129c2f4d.57d4e1",
+        "type": "CPUs",
+        "z": "cc040e90.f2572",
+        "name": "cpu",
+        "x": 380.00000381469727,
+        "y": 819.9999465942383,
+        "wires": [
+            [
+                "7307da64.fd1c54"
+            ]
+        ]
+    },
+    {
+        "id": "6b3e744b.f0badc",
+        "type": "Loadavg",
+        "z": "cc040e90.f2572",
+        "name": "load",
+        "x": 378,
+        "y": 866,
+        "wires": [
+            [
+                "7307da64.fd1c54"
+            ]
+        ]
+    },
+    {
+        "id": "6c63c811.88f878",
+        "type": "Memory",
+        "z": "cc040e90.f2572",
+        "name": "mem",
+        "x": 379,
+        "y": 903,
+        "wires": [
+            [
+                "7307da64.fd1c54"
+            ]
+        ]
+    },
+    {
+        "id": "bad17e7c.d9fbd",
+        "type": "inject",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "x": 96,
+        "y": 723,
+        "wires": [
+            [
+                "c4ff3de2.26278"
+            ]
+        ]
+    },
+    {
+        "id": "7307da64.fd1c54",
+        "type": "join",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "name",
+        "joiner": "\\n",
+        "timeout": "",
+        "count": "3",
+        "x": 533.5,
+        "y": 865,
+        "wires": [
+            [
+                "d8ccfd01.a2ff4"
+            ]
+        ]
+    },
+    {
+        "id": "a85a3c01.5f8ef",
+        "type": "join",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "timeout": "",
+        "count": "2",
+        "x": 732.5,
+        "y": 865,
+        "wires": [
+            [
+                "dd4b0504.f411c8",
+                "476badca.a1a554"
+            ]
+        ]
+    },
+    {
+        "id": "dd4b0504.f411c8",
+        "type": "function",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "func": "var arrayLength = msg.payload.length;\ntable=\"measures\"\nsql=\"\"\nsql_keys=\"\"\nsql_values=\"\"\nfor (var i = 0; i < arrayLength; i++) {\n    obj=msg.payload[i]\n    sql+=\" INSERT INTO \" + table\n    \n    //iterate\n    keys=Object.keys(msg.payload[i])\n    if (i===0) {// compute only columns at first line\n    for (var k=0 ; k < keys.length ; k++ ){\n        if (sql_keys!==\"\"){\n            sql_keys+=\",\"\n            sql_values+=\",\"\n        }\n        sql_keys+=keys[k]\n        node.log(\"key=\" + keys[k])\n        if (keys[k]==\"timestamp\"){\n            sql_values+=\"'\" + msg.payload[i][keys[k]] +\"'\"\n        } else {\n            sql_values+=msg.payload[i][keys[k]]\n        }\n    }}\n    sql+=\" (\" + sql_keys +\") VALUES (\" + sql_values + \");\\n\"\n}\n\nreturn { payload : sql }",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 854.5,
+        "y": 864,
+        "wires": [
+            [
+                "f4f253c.ae923b",
+                "91c7b58.fc2c148"
+            ]
+        ]
+    },
+    {
+        "id": "d8ccfd01.a2ff4",
+        "type": "change",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.cpus_0_speed",
+                "pt": "msg",
+                "to": "payload.cpus.0.speed",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.cpus_1_speed",
+                "pt": "msg",
+                "to": "payload.cpus.1.speed",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.cpus",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.loadavg_0",
+                "pt": "msg",
+                "to": "payload.loadavg.0",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.loadavg_1",
+                "pt": "msg",
+                "to": "payload.loadavg.1",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.loadavg_2",
+                "pt": "msg",
+                "to": "payload.loadavg.2",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.loadavg",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.timestamp",
+                "pt": "msg",
+                "to": "timestamp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 615.5,
+        "y": 937,
+        "wires": [
+            [
+                "a85a3c01.5f8ef"
+            ]
+        ]
+    },
+    {
+        "id": "c4ff3de2.26278",
+        "type": "moment",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "UTC",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "",
+        "locale": "POSIX",
+        "output": "timestamp",
+        "outputType": "msg",
+        "outTz": "UTC",
+        "x": 187.5,
+        "y": 821,
+        "wires": [
+            [
+                "129c2f4d.57d4e1",
+                "6b3e744b.f0badc",
+                "6c63c811.88f878"
+            ]
+        ]
+    },
+    {
+        "id": "91c7b58.fc2c148",
+        "type": "debug",
+        "z": "cc040e90.f2572",
+        "name": "sql output",
+        "active": true,
+        "console": "true",
+        "complete": "true",
+        "x": 1078.5,
+        "y": 792,
+        "wires": []
+    },
+    {
+        "id": "40a9525d.0af82c",
+        "type": "json",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "x": 1203.5,
+        "y": 870,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4f253c.ae923b",
+        "type": "postgres",
+        "z": "cc040e90.f2572",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 996.5,
+        "y": 919,
+        "wires": [
+            [
+                "40a9525d.0af82c"
+            ]
+        ]
+    },
+    {
+        "id": "e3db3058.857e6",
+        "type": "ui_dropdown",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "label": "Model Type",
+        "place": "random forest",
+        "group": "c05d9d5b.8a809",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "",
+                "value": "random forest",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "linear regression",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "decision tree",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 374.5084915161133,
+        "y": 106.74998474121094,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a0ecf4a8.129808",
+        "type": "ui_button",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "group": "c05d9d5b.8a809",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Train model",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 185.51987075805664,
+        "y": 105.74998378753662,
+        "wires": [
+            [
+                "e3db3058.857e6"
+            ]
+        ]
+    },
+    {
+        "id": "61582c2b.dcef44",
+        "type": "ui_gauge",
+        "z": "a899a7cb.ba5888",
+        "name": "r2_score",
+        "group": "54951a88.d93594",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "R-squared",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 233.5142059326172,
+        "y": 80.74431610107422,
+        "wires": []
+    },
+    {
+        "id": "5d98ad40.d3e634",
+        "type": "ui_gauge",
+        "z": "a899a7cb.ba5888",
+        "name": "mean_abs_error",
+        "group": "54951a88.d93594",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Mean absolute error",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 250.5170440673828,
+        "y": 128.7414779663086,
+        "wires": []
+    },
+    {
+        "id": "3ccfccb.a1d0334",
+        "type": "ui_gauge",
+        "z": "a899a7cb.ba5888",
+        "name": "adjusted_r2_score",
+        "group": "54951a88.d93594",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Adjusted R-squared",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 266.51135635375977,
+        "y": 174.74146842956543,
+        "wires": []
+    },
+    {
+        "id": "8b81960e.237c18",
+        "type": "ui_chart",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "group": "f1a87ed8.ae453",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "CPU",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 290.51133728027344,
+        "y": 110.74431037902832,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a4cd8932.3b16e8",
+        "type": "ui_chart",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "group": "6954d8b6.ab5698",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "MEM",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 295.5170440673828,
+        "y": 164.74999237060547,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "45e81ac1.8ac804",
+        "type": "ui_chart",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "group": "170e7cec.458543",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "CPU",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 350.01422119140625,
+        "y": 264.00567626953125,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a6cdc982.c1f3f8",
+        "type": "ui_chart",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "group": "90b744ed.ba1028",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "MEM",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 355.0199279785156,
+        "y": 318.0113582611084,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "500867d6.47fc68",
+        "type": "ui_date_picker",
+        "z": "a99e64a2.d57e48",
+        "name": "date_from",
+        "label": "From",
+        "group": "6dffe5bf.8966bc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "x": 255.7017059326172,
+        "y": 132.39203643798828,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a85a6a5e.bd5a28",
+        "type": "ui_date_picker",
+        "z": "a99e64a2.d57e48",
+        "name": "date_to",
+        "label": "To      ",
+        "group": "6dffe5bf.8966bc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "x": 421.01422119140625,
+        "y": 134.0056915283203,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "503b38ec.7e2078",
+        "type": "ui_button",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "group": "6dffe5bf.8966bc",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Search",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 307.69032287597656,
+        "y": 177.29261016845703,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "deaf2bda.a0c9c8",
+        "type": "ui_text",
+        "z": "9aa2a6ad.cf1138",
+        "group": "c05d9d5b.8a809",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last Trained",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 379.00856018066406,
+        "y": 183.0056972503662,
+        "wires": []
+    },
+    {
+        "id": "159950ee.13de8f",
+        "type": "inject",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "topic": "",
+        "payload": "11.07.2017",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 84.00001525878906,
+        "y": 206.89491844177246,
+        "wires": [
+            [
+                "deaf2bda.a0c9c8"
+            ]
+        ]
+    }
+]
