@@ -23,7 +23,8 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
 	    cpu1_idle numeric,
 	    loadavg_0 numeric,
 	    loadavg_1 numeric,
-	    loadavg_2 numeric
+	    loadavg_2 numeric,
+	    prediction numeric
 	)
 	WITH (
 	    OIDS = FALSE
