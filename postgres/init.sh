@@ -6,9 +6,10 @@ set -e
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
 	CREATE EXTENSION madlib CASCADE;
     CREATE USER admin;
-    CREATE USER iot;
-    CREATE DATABASE iot;
-    GRANT ALL PRIVILEGES ON DATABASE iot TO admin;
+    #CREATE USER measures;
+    CREATE DATABASE measures;
+    GRANT ALL PRIVILEGES ON DATABASE measures TO admin;
+    CONNECT measures
     CREATE TABLE public.measures
 		(
 		    "timestamp" timestamp without time zone DEFAULT now()
