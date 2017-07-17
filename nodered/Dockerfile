@@ -34,7 +34,8 @@ RUN npm i postgrestor \
   && npm install node-red-contrib-opentimestamps \
   && npm install node-red-contrib-moment \
   && npm install node-red-dashboard \
-  && npm install node-red-node-sqlite 
+  && npm install node-red-node-sqlite \
+  && npm install node-red-contrib-tableify
   
 COPY flows.json /data/flows.json
 COPY flows_cred.json /data/flows_cred.json

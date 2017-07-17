@@ -35,6 +35,13 @@
         "info": ""
     },
     {
+        "id": "3814ddaa.43c1f2",
+        "type": "tab",
+        "label": "Chart example",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "266900e7.80186",
         "type": "postgresDB",
         "z": "",
@@ -63,7 +70,7 @@
             "name": "theme-light",
             "lightTheme": {
                 "default": "#0094CE",
-                "baseColor": "#004762",
+                "baseColor": "#005373",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                 "edited": true,
                 "reset": false
@@ -72,7 +79,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -87,7 +95,7 @@
                     "edited": false
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#004762",
+                    "value": "#005373",
                     "edited": false
                 },
                 "page-backgroundColor": {
@@ -99,7 +107,7 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#007eae",
+                    "value": "#008abf",
                     "edited": false
                 },
                 "group-borderColor": {
@@ -115,7 +123,7 @@
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#004762",
+                    "value": "#005373",
                     "edited": false
                 },
                 "widget-borderColor": {
@@ -158,7 +166,7 @@
         "z": "",
         "name": "Train",
         "tab": "3088169e.2d672a",
-        "order": 2,
+        "order": 3,
         "disp": true,
         "width": "6"
     },
@@ -166,9 +174,9 @@
         "id": "54951a88.d93594",
         "type": "ui_group",
         "z": "",
-        "name": "Evaluate",
+        "name": "Summary",
         "tab": "3088169e.2d672a",
-        "order": 1,
+        "order": 2,
         "disp": true,
         "width": "6"
     },
@@ -246,6 +254,34 @@
         "width": 6
     },
     {
+        "id": "b345594e.a153b8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chart with integer X axis",
+        "tab": "3a61d57a.2a93aa",
+        "order": 1,
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "3a61d57a.2a93aa",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Chart.js example",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "2d33e1b6.3dac6e",
+        "type": "ui_group",
+        "z": "",
+        "name": "Evaluate",
+        "tab": "3088169e.2d672a",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
         "id": "476badca.a1a554",
         "type": "debug",
         "z": "cc040e90.f2572",
@@ -310,9 +346,7 @@
         "x": 96,
         "y": 723,
         "wires": [
-            [
-                "c4ff3de2.26278"
-            ]
+            []
         ]
     },
     {
@@ -524,30 +558,32 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "options": [
             {
-                "label": "",
-                "value": "random forest",
+                "label": "random forest",
+                "value": "forest",
                 "type": "str"
             },
             {
-                "label": "",
+                "label": "linear regression",
                 "value": "linear regression",
                 "type": "str"
             },
             {
-                "label": "",
+                "label": "decision tree",
                 "value": "decision tree",
                 "type": "str"
             }
         ],
         "payload": "",
         "topic": "",
-        "x": 374.5084915161133,
-        "y": 106.74998474121094,
+        "x": 370,
+        "y": 60,
         "wires": [
-            []
+            [
+                "1473d16b.905d0f"
+            ]
         ]
     },
     {
@@ -567,11 +603,11 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 185.51987075805664,
-        "y": 105.74998378753662,
+        "x": 112.51987838745117,
+        "y": 98.74998378753662,
         "wires": [
             [
-                "e3db3058.857e6"
+                "30dc34bc.471f2c"
             ]
         ]
     },
@@ -580,25 +616,25 @@
         "type": "ui_gauge",
         "z": "a899a7cb.ba5888",
         "name": "r2_score",
-        "group": "54951a88.d93594",
-        "order": 0,
+        "group": "2d33e1b6.3dac6e",
+        "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "R-squared",
+        "title": "R2 Score",
         "label": "units",
         "format": "{{value}}",
-        "min": 0,
-        "max": 10,
+        "min": "-1",
+        "max": "1",
         "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
+            "#ff0000",
+            "#29bc5c",
+            "#6d947b"
         ],
-        "seg1": "",
-        "seg2": "",
-        "x": 233.5142059326172,
-        "y": 80.74431610107422,
+        "seg1": "0.8",
+        "seg2": "0.9",
+        "x": 860,
+        "y": 360,
         "wires": []
     },
     {
@@ -606,12 +642,12 @@
         "type": "ui_gauge",
         "z": "a899a7cb.ba5888",
         "name": "mean_abs_error",
-        "group": "54951a88.d93594",
-        "order": 0,
+        "group": "2d33e1b6.3dac6e",
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "Mean absolute error",
+        "title": "ROC Score",
         "label": "units",
         "format": "{{value}}",
         "min": 0,
@@ -623,8 +659,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 250.5170440673828,
-        "y": 128.7414779663086,
+        "x": 880,
+        "y": 420,
         "wires": []
     },
     {
@@ -632,8 +668,8 @@
         "type": "ui_gauge",
         "z": "a899a7cb.ba5888",
         "name": "adjusted_r2_score",
-        "group": "54951a88.d93594",
-        "order": 0,
+        "group": "2d33e1b6.3dac6e",
+        "order": 3,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -649,8 +685,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 266.51135635375977,
-        "y": 174.74146842956543,
+        "x": 830,
+        "y": 500,
         "wires": []
     },
     {
@@ -882,10 +918,10 @@
         "height": 0,
         "name": "",
         "label": "Last Trained",
-        "format": "{{msg.payload}}",
+        "format": "{{msg.payload[2].timestamp}}",
         "layout": "row-center",
-        "x": 379.00856018066406,
-        "y": 183.0056972503662,
+        "x": 790,
+        "y": 380,
         "wires": []
     },
     {
@@ -894,16 +930,540 @@
         "z": "9aa2a6ad.cf1138",
         "name": "",
         "topic": "",
-        "payload": "11.07.2017",
+        "payload": "SELECT 1; SELECT * FROM train_output_summary; SELECT  * FROM model ORDER BY timestamp DESC LIMIT 1",
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
         "once": true,
-        "x": 84.00001525878906,
-        "y": 206.89491844177246,
+        "x": 230,
+        "y": 240,
         "wires": [
             [
-                "deaf2bda.a0c9c8"
+                "d89e4904.118888"
+            ]
+        ]
+    },
+    {
+        "id": "c03a6b8a.2f06d8",
+        "type": "postgres",
+        "z": "9aa2a6ad.cf1138",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Train Model",
+        "output": true,
+        "outputs": 1,
+        "x": 653.519905090332,
+        "y": 155.8863525390625,
+        "wires": [
+            [
+                "e7fb2d0e.009ae",
+                "deaf2bda.a0c9c8",
+                "f777fd2b.b17b5",
+                "23391017.aac4a"
+            ]
+        ]
+    },
+    {
+        "id": "e7fb2d0e.009ae",
+        "type": "debug",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 829.2584533691406,
+        "y": 101.4488525390625,
+        "wires": []
+    },
+    {
+        "id": "1473d16b.905d0f",
+        "type": "template",
+        "z": "9aa2a6ad.cf1138",
+        "name": "Train Model SQL",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DROP TABLE IF EXISTS train_output, train_output_group, train_output_summary;\nSELECT {{payload}}_train('ml_source',         -- source table\n                           'train_output',    -- output model table\n                           'timestamp',              -- id column\n                           'memusage',           -- response\n                           'freemem,totalmem,cpus_0_speed,cpus_1_speed,loadavg_0,loadavg_1,loadavg_2',   -- features\n                           NULL,              -- exclude columns\n                           NULL,              -- grouping columns\n                           20::integer,       -- number of trees\n                           2::integer,        -- number of random features\n                           TRUE::boolean,     -- variable importance\n                           1::integer,        -- num_permutations\n                           8::integer,        -- max depth\n                           3::integer,        -- min split\n                           1::integer,        -- min bucket\n                           10::integer        -- number of splits per continuous variable\n                           );\nINSERT INTO model (method) VALUES ('{{payload}}_train');\nCOMMIT;\nSELECT * FROM train_output_summary; \nSELECT  * FROM model ORDER BY timestamp DESC LIMIT 1;",
+        "output": "str",
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "e7fb2d0e.009ae",
+                "c03a6b8a.2f06d8"
+            ]
+        ]
+    },
+    {
+        "id": "700252ec.a0851c",
+        "type": "ui_template",
+        "z": "9aa2a6ad.cf1138",
+        "group": "54951a88.d93594",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div layout=\"row\" layout-align=\"space-between\">\n    {{msg.payload}}\n</div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 900,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "346aee7.0065c12",
+        "type": "comment",
+        "z": "3814ddaa.43c1f2",
+        "name": "Read me",
+        "info": "This charting example extends node-red-dashboard and the work by Colin Law here:\nhttp://flows.nodered.org/flow/c3dc75c47323a2754f5285225bce64b5\n\nView the chart at http://localhost:1880/ui\n\nBoth the dashboard chart and Colin's example uses time as the X-axis. The example\nhere uses an integer as the x-axis. Colin's example uses Chart.js inside a\nnode-red-dashboard template node. The example here leaves Colin's code almost \nunchanged except that the chart.js XAxis is changed from:\n\n                xAxes: [{\n                    type: 'time',\n                    time: {\n                        unit: 'minute',\n                        unitStepSize: 1,\n                        displayFormats: {\n                            minute: 'HH:mm'\n                        }\n                    }\n                }],\n\nto this:\n              xAxes: [{\n                    type: 'linear',\n                    position: 'bottom'\n                    }\n                ],\n                \nI also adjusted the way the nodes are rendered.\n\nThis example pre-prepares the data object and uses the msg.action = \"load\" \nmethod to ask the template code to render the data. \n\nA dashboard button on the UI page generates fresh data with a different \nscale each time.\n\n\n",
+        "x": 173.76776123046875,
+        "y": 193.75711059570312,
+        "wires": []
+    },
+    {
+        "id": "edbe33ba.deabf",
+        "type": "ui_template",
+        "z": "3814ddaa.43c1f2",
+        "group": "b345594e.a153b8",
+        "name": "Chart.js example",
+        "order": 9,
+        "width": "8",
+        "height": "8",
+        "format": "<!-- See the read me comment node. Colin Law's original notes follow -->\n\n<!--\nA node-red Dashboard UI template to draw charts using chart.js\nBefore use download the file Chart.bundle.min.js from chartjs.org and \nsave in an appropriate folder (e.g. .node-red/static). \nIn settings.js set httpStatic to the full path of that folder and restart node-red.\nMake sure that the options for 'Pass through messages' and 'Add output messages' \nin this node are cleared.\nFor basic use set the id and size you want in the canvas tag and set chartID to the id\nSetup chartDef as required for your chart (see the chart.js docs)\nIn addition, for each dataset specify in chartDef the message topic that you will use for that channel.\nTo (optionally) provide the chart with a one-off set of data send the node a message with:\nmsg.action = \"load\"\nmsg.payload = [\n{topic: \"mytopic1\", data: [{x: x1,y:y2},{x:x2,y:y2},...]},\n{topic: \"mytopic2\", data: [{x: x1,y:y2},{x:x2,y:y2},...]},\n...]\nWhere mytopic1 and mytopic2 are the the topics specified in the chartDef\n\nTo provide the chart with data incrementally (for a time series for example)\nsend it messages of the form\n{topic: \"mytopic1\", payload: {x:xvalue,y:yvalue}}\nThe chart will be updated as each sample is provided.\nTo limit the growth of the chart set chartMaxPoints and/or chartTimeSpan in the Chart Helper node\nas described at the head of that node.\nIf you find that chart seems to flicker and scroll bars come and go then try \nsetting a size other than auto in the Size specification for this node.\n\nFor Bar charts the x value is the label for the bar and the y value is the bar value\n\nNote that since the chart samples are stored in the browser then the chart will be cleared each\ntime the browser is refreshed (and will be clear on initially opening the view). In order to \nprovided persistency over browser opening and refresh this node may be used in conjunction with\nthe Chart Helper function node.  Details for its use are in the source of that node.\n\nIf your flow includes more that one instance of this script then the line fetching \nChart.bundle.min.js need only be included in one of them\n-->\n\n<script src=\"/Chart.bundle.min.js\"></script>\n<canvas id=\"myChartSimple1\" width=\"300\" height=\"300\"></canvas>\n<script>\n(function() {\n    var chartID = \"myChartSimple1\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"Sin\",    // used here not by chart.js\n                label: \"Sin\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 5,\n                pointHoverRadius: 5,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }, {\n                topic: \"Triangle\",    // used here not by chart.js\n                label: \"Triangle\",\n                yAxisID: \"2\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#ff0000\",\n                pointRadius: 5,\n                pointHoverRadius: 5,\n                pointBorderColor: \"#ff0000\",\n                pointBackgroundColor: \"#ff0000\",\n                backgroundColor:  \"#ff0000\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                    type: 'linear',\n                    position: 'bottom'\n                    }\n                ],\n                yAxes: [{\n                    id: \"1\",\n                    ticks: {\n                        min: -1,\n                        max: 1,\n                        stepSize: 0.2\n                    }\n                }, {\n                    id: \"2\",\n                    ticks: {\n                        min: -10,\n                        max: 10,\n                        stepSize: 2\n                    }\n                }]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n    };\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "templateScope": "local",
+        "x": 670.3177185058594,
+        "y": 317.64044189453125,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9ddc0462.1035b8",
+        "type": "debug",
+        "z": "3814ddaa.43c1f2",
+        "name": "View data object",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 667.7677917480469,
+        "y": 376.89044189453125,
+        "wires": []
+    },
+    {
+        "id": "18f1d898.d18147",
+        "type": "inject",
+        "z": "3814ddaa.43c1f2",
+        "name": "Load Data Set",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 207.7677459716797,
+        "y": 262.14044189453125,
+        "wires": [
+            [
+                "83a857cc.eb6898"
+            ]
+        ]
+    },
+    {
+        "id": "83a857cc.eb6898",
+        "type": "function",
+        "z": "3814ddaa.43c1f2",
+        "name": "Pre-load test data",
+        "func": "\n/* This function creates a two data sets, with different topics,\n   the same x values and different y values*/\n\n// Change the scale factor each time.\nvar scale = context.get('scale') || 0;\nif (msg.topic == \"Reset\") {\n    scale = 0;\n}\nscale++;\ncontext.set('scale', scale);\n\nmsg.payload = [];       // This will be an array of {topic, data} objects\nvar dataPoints1 = [];   // These will be the first array of data points \nvar dataPoints2 = [];   // These will be the second array of data points \nvar numPoints = 20;     // We will create one more than this.\n\n// For the first data set create a sine wave\nfor (var i=0; i<=numPoints; i++) {\n    var point = {};\n    point.x = i;\n    point.y = Math.sin(2 * 3.14 * (i/numPoints)) * scale/10;\n    // build the data array    \n    dataPoints1.push(point);\n}\n\n// For the second data set create a triangle\nfor (var i=0; i<=numPoints; i++) {\n    var point = {};\n    point.x = i;\n    if (i<(numPoints/2)) {\n        // ramp up\n        point.y = i * scale/10;\n    }\n    else {\n        // ramp down\n        point.y = (numPoints - i) * scale/10;\n    }\n    dataPoints2.push(point);    // add to the array\n}\n\nmsg.action = \"load\";    // This instructs the chart node to paint the data\n\n// The payload is an array of two {topic, data} objects\nmsg.payload = [{topic: \"Sin\", data: dataPoints1},\n                {topic: \"Triangle\", data: dataPoints2}];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 448.76776123046875,
+        "y": 318.2904357910156,
+        "wires": [
+            [
+                "edbe33ba.deabf",
+                "9ddc0462.1035b8"
+            ]
+        ]
+    },
+    {
+        "id": "11e8a045.938d2",
+        "type": "ui_button",
+        "z": "3814ddaa.43c1f2",
+        "name": "New Data Button",
+        "group": "b345594e.a153b8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "New Data",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 195.7677459716797,
+        "y": 319.94044494628906,
+        "wires": [
+            [
+                "83a857cc.eb6898"
+            ]
+        ]
+    },
+    {
+        "id": "77244b89.60cc64",
+        "type": "ui_button",
+        "z": "3814ddaa.43c1f2",
+        "name": "Reset",
+        "group": "b345594e.a153b8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Reset",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "Reset",
+        "x": 231.76776123046875,
+        "y": 374.9404296875,
+        "wires": [
+            [
+                "83a857cc.eb6898"
+            ]
+        ]
+    },
+    {
+        "id": "30dc34bc.471f2c",
+        "type": "timestamp",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "x": 264.5084991455078,
+        "y": 104.93465423583984,
+        "wires": [
+            [
+                "e3db3058.857e6"
+            ]
+        ]
+    },
+    {
+        "id": "d89e4904.118888",
+        "type": "postgres",
+        "z": "9aa2a6ad.cf1138",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "deaf2bda.a0c9c8",
+                "f777fd2b.b17b5"
+            ]
+        ]
+    },
+    {
+        "id": "94b1d88d.1ceb38",
+        "type": "tableify",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "before": "",
+        "after": "",
+        "tableStyle": " ",
+        "theadStyle": " ",
+        "tbodyStyle": " ",
+        "trStyle": " ",
+        "tdStyle": " ",
+        "x": 880,
+        "y": 260,
+        "wires": [
+            [
+                "ea4991b3.c85c"
+            ]
+        ]
+    },
+    {
+        "id": "f777fd2b.b17b5",
+        "type": "change",
+        "z": "9aa2a6ad.cf1138",
+        "name": "msg.template",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[1]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 220,
+        "wires": [
+            [
+                "94b1d88d.1ceb38",
+                "e7fb2d0e.009ae"
+            ]
+        ]
+    },
+    {
+        "id": "ea4991b3.c85c",
+        "type": "change",
+        "z": "9aa2a6ad.cf1138",
+        "name": "msg.template",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "700252ec.a0851c"
+            ]
+        ]
+    },
+    {
+        "id": "e8d5afe1.2652b",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Evaluate Postgres",
+        "output": true,
+        "outputs": 1,
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "54c6f1b2.3c524",
+                "f584c832.9cd278"
+            ]
+        ]
+    },
+    {
+        "id": "70081e13.4bd21",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "topic": "",
+        "payload": "[\"test1\",\"test2\"]",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "54c6f1b2.3c524",
+                "f584c832.9cd278"
+            ]
+        ]
+    },
+    {
+        "id": "f1830da3.9f0a9",
+        "type": "debug",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 870,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "bfd120e0.ab754",
+        "type": "template",
+        "z": "a899a7cb.ba5888",
+        "name": "Evaluate SQL",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DROP TABLE IF EXISTS prediction_results CASCADE;\n\nSELECT forest_predict('train_output',\n                             'measures',\n                             'prediction_results',\n                             'response');\n                             \nCREATE OR REPLACE VIEW public.measures_predictions AS\n SELECT timestamp,prediction_results.estimated_memusage, measures.memusage \n   FROM prediction_results\n     JOIN measures USING (\"timestamp\");\n\nDROP TABLE IF EXISTS evaluation_R2;\n/*r2_score(table_in, table_out, prediction_col, observed_col, grouping_cols)*/\nSELECT r2_score('measures_predictions', 'evaluation_R2', 'estimated_memusage','memusage');\n\nDROP TABLE IF EXISTS evaluation_ROC;\nSELECT area_under_roc('measures_predictions', 'evaluation_ROC', 'estimated_memusage','memusage');\n\nDROP TABLE IF EXISTS evaluation_confusion;\nSELECT confusion_matrix('measures_predictions', 'evaluation_confusion', 'estimated_memusage','memusage');\n",
+        "output": "str",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "e8d5afe1.2652b"
+            ]
+        ]
+    },
+    {
+        "id": "e35cd32a.2f55c",
+        "type": "link in",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "links": [
+            "23391017.aac4a"
+        ],
+        "x": 55,
+        "y": 220,
+        "wires": [
+            [
+                "bfd120e0.ab754"
+            ]
+        ]
+    },
+    {
+        "id": "23391017.aac4a",
+        "type": "link out",
+        "z": "9aa2a6ad.cf1138",
+        "name": "Evaluate",
+        "links": [
+            "e35cd32a.2f55c"
+        ],
+        "x": 826.5113372802734,
+        "y": 57.93181610107422,
+        "wires": []
+    },
+    {
+        "id": "999dd537.e57d38",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "Test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 97.51988220214844,
+        "y": 124.9772720336914,
+        "wires": [
+            [
+                "bfd120e0.ab754"
+            ]
+        ]
+    },
+    {
+        "id": "8f0c58cf.29d528",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Evaluate Postgres",
+        "output": true,
+        "outputs": 1,
+        "x": 570,
+        "y": 360,
+        "wires": [
+            [
+                "fbf0a2c6.b6ecf"
+            ]
+        ]
+    },
+    {
+        "id": "54c6f1b2.3c524",
+        "type": "template",
+        "z": "a899a7cb.ba5888",
+        "name": "Evaluate SQL R2",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * FROM evaluation_R2;\n",
+        "output": "str",
+        "x": 350,
+        "y": 360,
+        "wires": [
+            [
+                "8f0c58cf.29d528"
+            ]
+        ]
+    },
+    {
+        "id": "fbf0a2c6.b6ecf",
+        "type": "function",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "func": "rounded=Math.round(msg.payload[0].r2_score * 100) / 100\nmsg.payload=rounded\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 360,
+        "wires": [
+            [
+                "61582c2b.dcef44"
+            ]
+        ]
+    },
+    {
+        "id": "f584c832.9cd278",
+        "type": "template",
+        "z": "a899a7cb.ba5888",
+        "name": "Evaluate SQL ROC",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * FROM evaluation_ROC;\n",
+        "output": "str",
+        "x": 350,
+        "y": 420,
+        "wires": [
+            [
+                "9ead5049.6b98a"
+            ]
+        ]
+    },
+    {
+        "id": "9ead5049.6b98a",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Evaluate Postgres",
+        "output": true,
+        "outputs": 1,
+        "x": 570,
+        "y": 420,
+        "wires": [
+            [
+                "8a8c5abe.282b88",
+                "f1830da3.9f0a9"
+            ]
+        ]
+    },
+    {
+        "id": "8a8c5abe.282b88",
+        "type": "function",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "func": "rounded=Math.round(msg.payload[0].area_under_roc * 100) / 100\nmsg.payload=rounded\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 420,
+        "wires": [
+            [
+                "5d98ad40.d3e634",
+                "f1830da3.9f0a9"
             ]
         ]
     }
