@@ -18,7 +18,7 @@ COPY entrypoint.sh /
 
 RUN \
   apt-get update && \
-  apt-get install -y vim netcat unzip && \  
+  apt-get install -y nano netcat unzip && \  
   curl -SL https://sourceforge.net/projects/jasperserver/files/latest/JasperServer -o /tmp/jasperserver.zip && \
   unzip /tmp/jasperserver.zip -d $JASPERSERVER_HOME && \  
   mv -v $JASPERSERVER_HOME/jasperreports-server-cp-${JS_VERSION}-bin/* $JASPERSERVER_HOME && \
