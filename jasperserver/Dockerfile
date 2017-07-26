@@ -1,32 +1,19 @@
 FROM tomcat:7
+#MAINTAINER John Paul Alcala jp@jpalcala.com
 
-ENV \
-  JS_Xmx=512m \
-  JS_MaxPermSize=256m \
-  JS_CATALINA_OPTS="-XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC -XX:+CMSIncrementalMode -XX:+CMSIncrementalPacing -XX:+CMSParallelRemarkEnabled -XX:+UseCompressedOops -XX:+UseCMSInitiatingOccupancyOnly" \
-  JS_DB_HOST=db \
-  JS_DB_PORT=3306 \
-  JS_DB_USER=jasper \
-  JS_DB_PASSWORD=my_password \
-  JASPERSERVER_HOME=/jasperserver \
-  JASPERSERVER_BUILD=/jasperserver/buildomatic
-  
-  # JS_DB_TYPE=mysql \
-  # JS_VERSION=6.3.0 \
+ENV JASPERSERVER_VERSION=6.4.0
+
+
+RUN apt-get update && apt-get install -y apt-utils nano && rm -rf /var/lib/apt/lists/* && \ 
+	curl -SL http://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%20${JASPERSERVER_VERSION}/TIB_js-jrs-cp_${JASPERSERVER_VERSION}_bin.zip/download -o /tmp/jasperserver.zip && \
+	curl -SL https://jdbc.postgresql.org/download/postgresql-42.1.3.jre7.jar -o $CATALINA_HOME/lib/postgresql-9.4.1208.jre7.jar && \
+    unzip /tmp/jasperserver.zip -d /usr/src/ && \
+    mv /usr/src/jasperreports-server-cp-$JASPERSERVER_VERSION-bin /usr/src/jasperreports-server && \
+    rm -rf /tmp/*
+
+
+ENV CATALINA_OPTS="-server -Xmx1536m -XX:MaxPermSize=256m -XX:+TieredCompilation -XX:CompileThreshold=1500 -XX:-DontCompileHugeMethods -XX:+UseCodeCacheFlushing -XX:ReservedCodeCacheSize=256m -XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0 -XX:NewRatio=3 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC -XX:+CMSIncrementalMode -XX:+CMSIncrementalPacing -XX:+CMSParallelRemarkEnabled -XX:+UseCompressedOops -XX:CMSInitiatingOccupancyFraction=30 -XX:+UseCMSInitiatingOccupancyOnly"
 
 COPY entrypoint.sh /
-
-RUN \
-  apt-get update && \
-  apt-get install -y vim netcat unzip && \  
-  curl -SL https://sourceforge.net/projects/jasperserver/files/latest/JasperServer -o /tmp/jasperserver.zip && \
-  unzip /tmp/jasperserver.zip -d $JASPERSERVER_HOME && \  
-  mv -v $JASPERSERVER_HOME/jasperreports-server-cp-${JS_VERSION}-bin/* $JASPERSERVER_HOME && \
-  chmod +x /entrypoint.sh && \ 
-  rm -rf $JASPERSERVER_HOME/jasperreports-server-cp-${JS_VERSION}-bin && \
-  rm -rf /tmp/* && \
-  rm -rf /var/lib/apt/lists/*
-
 ENTRYPOINT ["/entrypoint.sh"]
-
 CMD ["run"]
