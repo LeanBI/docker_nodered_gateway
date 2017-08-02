@@ -1,0 +1,438 @@
+[
+    {
+        "id": "45e81ac1.8ac804",
+        "type": "ui_chart",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "group": "170e7cec.458543",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "CPU",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 710,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a6cdc982.c1f3f8",
+        "type": "ui_chart",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "group": "90b744ed.ba1028",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "MEM",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 715.0057067871094,
+        "y": 414.00568199157715,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "500867d6.47fc68",
+        "type": "ui_date_picker",
+        "z": "a99e64a2.d57e48",
+        "name": "date_from",
+        "label": "From",
+        "group": "6dffe5bf.8966bc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "date_from",
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "b33254ca.2cc7f8"
+            ]
+        ]
+    },
+    {
+        "id": "a85a6a5e.bd5a28",
+        "type": "ui_date_picker",
+        "z": "a99e64a2.d57e48",
+        "name": "date_to",
+        "label": "To      ",
+        "group": "6dffe5bf.8966bc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "date_to",
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "1978d9e3.32c6f6"
+            ]
+        ]
+    },
+    {
+        "id": "503b38ec.7e2078",
+        "type": "ui_button",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "group": "6dffe5bf.8966bc",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Search",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"msg_complete\":true}",
+        "payloadType": "json",
+        "topic": "search",
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "486698d8.a96838"
+            ]
+        ]
+    },
+    {
+        "id": "85d9bbbc.6d2488",
+        "type": "debug",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1150,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "894a2596.5cb3c8",
+        "type": "inject",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "f468c3a6.e6b17"
+            ]
+        ]
+    },
+    {
+        "id": "486698d8.a96838",
+        "type": "change",
+        "z": "a99e64a2.d57e48",
+        "name": "complete",
+        "rules": [
+            {
+                "t": "set",
+                "p": "complete",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "7d1d44a6.d3157c"
+            ]
+        ]
+    },
+    {
+        "id": "f2f7eee6.1e77a",
+        "type": "template",
+        "z": "a99e64a2.d57e48",
+        "name": "sql template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT timestamp,loadavg_1,loadavg_2,loadavg_0 FROM measures\nWHERE timestamp > to_timestamp({{payload.date_from}}) AT TIME ZONE 'UTC'\nAND\t  timestamp < to_timestamp({{payload.date_to}}) AT TIME ZONE 'UTC'",
+        "output": "str",
+        "x": 790,
+        "y": 80,
+        "wires": [
+            [
+                "8f980f87.c9d3a",
+                "85d9bbbc.6d2488"
+            ]
+        ]
+    },
+    {
+        "id": "8f980f87.c9d3a",
+        "type": "postgres",
+        "z": "a99e64a2.d57e48",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 960,
+        "y": 80,
+        "wires": [
+            [
+                "85d9bbbc.6d2488",
+                "ca18f7.c7fae708"
+            ]
+        ]
+    },
+    {
+        "id": "7d1d44a6.d3157c",
+        "type": "function",
+        "z": "a99e64a2.d57e48",
+        "name": "round",
+        "func": "\nmsg.payload.date_from=Math.round(flow.get('date_from'))/1000 || 0\nmsg.payload.date_to=Math.round(flow.get('date_to'))/1000 || 0\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 280,
+        "wires": [
+            [
+                "f2f7eee6.1e77a"
+            ]
+        ]
+    },
+    {
+        "id": "b33254ca.2cc7f8",
+        "type": "change",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "date_from",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1978d9e3.32c6f6",
+        "type": "change",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "date_to",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ca18f7.c7fae708",
+        "type": "function",
+        "z": "a99e64a2.d57e48",
+        "name": "chart data",
+        "func": "measures=[\"loadavg_0\",\"loadavg_1\"]\n\npl=[]\nfor (m=0; m<measures.length; m++){\n    key=measures[m]\n    t={\"topic\": key, \"data\":[]}\n    pl.push(t)\n}\n\nfor (i=0; i<msg.payload.length; i++){\n    for (m=0; m<measures.length; m++){\n        key=measures[m]\n        //l={\"x\":msg.payload[i].timestamp, y:msg.payload[i][key]}\n        l={\"x\":Math.random().toString() , \"y\":msg.payload[i][key]}\n        pl[m].data[i]=l\n    }\n}\nmsg2={\n    \"action\" : \"load\",\n    \"payload\" : pl\n}\nreturn msg2;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1000,
+        "y": 220,
+        "wires": [
+            [
+                "85d9bbbc.6d2488"
+            ]
+        ]
+    },
+    {
+        "id": "94e66ea8.7cc76",
+        "type": "inject",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "topic": "",
+        "payload": "2017-01-01T00:00:00.000Z",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 70,
+        "y": 60,
+        "wires": [
+            [
+                "500867d6.47fc68"
+            ]
+        ]
+    },
+    {
+        "id": "b32b83e5.050a1",
+        "type": "moment",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "topic": "",
+        "input": "",
+        "inputType": "msg",
+        "inTz": "",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "",
+        "locale": "",
+        "output": "",
+        "outputType": "msg",
+        "outTz": "",
+        "x": 440,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f468c3a6.e6b17",
+        "type": "moment",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "UTC",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "",
+        "locale": "POSIX",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "UTC",
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "a85a6a5e.bd5a28"
+            ]
+        ]
+    },
+    {
+        "id": "170e7cec.458543",
+        "type": "ui_group",
+        "z": "",
+        "name": "Charts_2",
+        "tab": "51d28439.f5869c",
+        "order": 3,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "90b744ed.ba1028",
+        "type": "ui_group",
+        "z": "",
+        "name": "Charts_1",
+        "tab": "51d28439.f5869c",
+        "order": 2,
+        "disp": true,
+        "width": "20"
+    },
+    {
+        "id": "6dffe5bf.8966bc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Search",
+        "tab": "51d28439.f5869c",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "70ac804.af5e28",
+        "type": "postgresdb",
+        "z": "",
+        "hostname": "db",
+        "port": "5432",
+        "db": "iot",
+        "ssl": false
+    },
+    {
+        "id": "51d28439.f5869c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Historian",
+        "icon": "dashboard",
+        "order": 2
+    }
+]

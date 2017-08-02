@@ -1,0 +1,2832 @@
+[
+    {
+        "id": "cc040e90.f2572",
+        "type": "tab",
+        "label": "Collect Data",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9aa2a6ad.cf1138",
+        "type": "tab",
+        "label": "Train Model",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a899a7cb.ba5888",
+        "type": "tab",
+        "label": "Evaluate",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "de01fcd5.05de9",
+        "type": "tab",
+        "label": "Export Model",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4456c24d.1b6d3c",
+        "type": "tab",
+        "label": "Real Time Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a99e64a2.d57e48",
+        "type": "tab",
+        "label": "Historian",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f8289694.a08da8",
+        "type": "subflow",
+        "name": "Persistence Helper",
+        "info": "",
+        "in": [
+            {
+                "x": 45.5,
+                "y": 85,
+                "wires": [
+                    {
+                        "id": "8829fac1.727588"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 749.5,
+                "y": 53,
+                "wires": [
+                    {
+                        "id": "6ba8d9ea.d70d18",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 755,
+                "y": 169,
+                "wires": [
+                    {
+                        "id": "c0b19b2d.9d5c08",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "266900e7.80186",
+        "type": "postgresDB",
+        "z": "",
+        "name": "db",
+        "host": "db",
+        "port": "5432",
+        "database": "iot",
+        "ssl": false,
+        "max": "10",
+        "min": 1,
+        "idle": "1000"
+    },
+    {
+        "id": "70ac804.af5e28",
+        "type": "postgresdb",
+        "z": "",
+        "hostname": "db",
+        "port": "5432",
+        "db": "iot",
+        "ssl": false
+    },
+    {
+        "id": "a7188bcb.7e9218",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#005373",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#005373",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#008abf",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#005373",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "LeanPredict IOT",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3088169e.2d672a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Model",
+        "icon": "dashboard",
+        "order": 3
+    },
+    {
+        "id": "c05d9d5b.8a809",
+        "type": "ui_group",
+        "z": "",
+        "name": "Train",
+        "tab": "3088169e.2d672a",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "54951a88.d93594",
+        "type": "ui_group",
+        "z": "",
+        "name": "Summary",
+        "tab": "3088169e.2d672a",
+        "order": 3,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "d45fff38.2540a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Real-Time",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "51d28439.f5869c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Historian",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "6dffe5bf.8966bc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Search",
+        "tab": "51d28439.f5869c",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "90b744ed.ba1028",
+        "type": "ui_group",
+        "z": "",
+        "name": "Load",
+        "tab": "51d28439.f5869c",
+        "order": 2,
+        "disp": true,
+        "width": "33"
+    },
+    {
+        "id": "170e7cec.458543",
+        "type": "ui_group",
+        "z": "",
+        "name": "Charts_2",
+        "tab": "51d28439.f5869c",
+        "order": 3,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "e077bb6f.25a078",
+        "type": "ui_group",
+        "name": "Group 4",
+        "tab": "51d28439.f5869c",
+        "order": 4,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "f1a87ed8.ae453",
+        "type": "ui_group",
+        "z": "",
+        "name": "Group 1",
+        "tab": "d45fff38.2540a",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "6954d8b6.ab5698",
+        "type": "ui_group",
+        "z": "",
+        "name": "Group 2",
+        "tab": "d45fff38.2540a",
+        "order": 2,
+        "disp": false,
+        "width": "12"
+    },
+    {
+        "id": "b345594e.a153b8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chart with integer X axis",
+        "tab": "3a61d57a.2a93aa",
+        "order": 1,
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "3a61d57a.2a93aa",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Chart.js example",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "2d33e1b6.3dac6e",
+        "type": "ui_group",
+        "z": "",
+        "name": "Evaluate",
+        "tab": "3088169e.2d672a",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "db17734f.6991d",
+        "type": "ui_group",
+        "z": "",
+        "name": "Scatter Group",
+        "tab": "3a61d57a.2a93aa",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "c8283f0d.7fd84",
+        "type": "ui_group",
+        "z": "",
+        "name": "nvd3",
+        "tab": "3a61d57a.2a93aa",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "66defd28.b59f74",
+        "type": "ui_group",
+        "z": "",
+        "name": "top_center",
+        "tab": "445c352f.ab2a3c",
+        "order": 2,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "a36529b4.c262a8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Middle",
+        "tab": "445c352f.ab2a3c",
+        "order": 4,
+        "disp": false,
+        "width": "25"
+    },
+    {
+        "id": "40b0860a.975378",
+        "type": "ui_group",
+        "z": "",
+        "name": "top_left",
+        "tab": "445c352f.ab2a3c",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "db921a78.1e3468",
+        "type": "ui_group",
+        "z": "",
+        "name": "top_right",
+        "tab": "445c352f.ab2a3c",
+        "order": 3,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "445c352f.ab2a3c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Main",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "528b055.5c977fc",
+        "type": "ui_tab",
+        "z": "",
+        "name": "test",
+        "icon": "dashboard"
+    },
+    {
+        "id": "e7f170a5.a6b3d",
+        "type": "ui_group",
+        "z": "",
+        "name": "test",
+        "tab": "528b055.5c977fc",
+        "disp": true,
+        "width": "27"
+    },
+    {
+        "id": "6b686bdf.fa8074",
+        "type": "ui_group",
+        "z": "",
+        "name": "Scatter plot model quality",
+        "tab": "3088169e.2d672a",
+        "order": 1,
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "38a50325.0ebcac",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Chart.js example",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "22e8d22d.36643e",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chart with integer X axis",
+        "tab": "9b7ed2d9.aec3a",
+        "order": 1,
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "9b7ed2d9.aec3a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Chart.js example",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "5deba637.69ab58",
+        "type": "ui_group",
+        "z": "",
+        "name": "test",
+        "tab": "528b055.5c977fc",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "ea9ca165.60298",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chart with integer X axis",
+        "tab": "79d4ebca.8282a4",
+        "order": 1,
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "79d4ebca.8282a4",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Chart.js example",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "f0445a79.2c9f78",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chart with integer X axis",
+        "tab": "f9835ccb.8baba",
+        "order": 1,
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "f9835ccb.8baba",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Chart.js example",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "476badca.a1a554",
+        "type": "debug",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 830,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "129c2f4d.57d4e1",
+        "type": "CPUs",
+        "z": "cc040e90.f2572",
+        "name": "cpu",
+        "x": 482.50000381469727,
+        "y": 255.99994659423828,
+        "wires": [
+            [
+                "7307da64.fd1c54",
+                "6bbf0e63.164e5"
+            ]
+        ]
+    },
+    {
+        "id": "6b3e744b.f0badc",
+        "type": "Loadavg",
+        "z": "cc040e90.f2572",
+        "name": "load",
+        "x": 480.5,
+        "y": 302,
+        "wires": [
+            [
+                "7307da64.fd1c54",
+                "a8be0212.d65eb"
+            ]
+        ]
+    },
+    {
+        "id": "6c63c811.88f878",
+        "type": "Memory",
+        "z": "cc040e90.f2572",
+        "name": "mem",
+        "x": 470,
+        "y": 380,
+        "wires": [
+            [
+                "7307da64.fd1c54",
+                "2d978a1d.8bc8f6"
+            ]
+        ]
+    },
+    {
+        "id": "bad17e7c.d9fbd",
+        "type": "inject",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "c4ff3de2.26278"
+            ]
+        ]
+    },
+    {
+        "id": "7307da64.fd1c54",
+        "type": "join",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "name",
+        "joiner": "\\n",
+        "timeout": "",
+        "count": "3",
+        "x": 636,
+        "y": 301,
+        "wires": [
+            [
+                "d8ccfd01.a2ff4",
+                "476badca.a1a554"
+            ]
+        ]
+    },
+    {
+        "id": "a85a3c01.5f8ef",
+        "type": "join",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "timeout": "",
+        "count": "2",
+        "x": 832.5,
+        "y": 296,
+        "wires": [
+            [
+                "dd4b0504.f411c8"
+            ]
+        ]
+    },
+    {
+        "id": "dd4b0504.f411c8",
+        "type": "function",
+        "z": "cc040e90.f2572",
+        "name": "prepare sql",
+        "func": "var arrayLength = msg.payload.length;\ntable=\"measures\"\nsql=\"\"\nsql_keys=\"\"\nsql_values=\"\"\nfor (var i = 0; i < arrayLength; i++) {\n    obj=msg.payload[i]\n    sql+=\" INSERT INTO \" + table\n    \n    //iterate\n    keys=Object.keys(msg.payload[i])\n    if (i===0) {// compute only columns at first line\n    for (var k=0 ; k < keys.length ; k++ ){\n        if (sql_keys!==\"\"){\n            sql_keys+=\",\"\n            sql_values+=\",\"\n        }\n        sql_keys+=keys[k]\n        //node.log(\"key=\" + keys[k])\n        if (keys[k]==\"timestamp\"){\n            sql_values+=\"'\" + msg.payload[i][keys[k]] +\"'\"\n        } else {\n            sql_values+=msg.payload[i][keys[k]]\n        }\n    }}\n    sql+=\" (\" + sql_keys +\") VALUES (\" + sql_values + \");\\n\"\n}\n\nreturn { payload : sql }",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010,
+        "y": 300,
+        "wires": [
+            [
+                "f4f253c.ae923b",
+                "91c7b58.fc2c148"
+            ]
+        ]
+    },
+    {
+        "id": "d8ccfd01.a2ff4",
+        "type": "change",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.cpus_0_speed",
+                "pt": "msg",
+                "to": "payload.cpus.0.speed",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.cpus_1_speed",
+                "pt": "msg",
+                "to": "payload.cpus.1.speed",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.cpus",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.loadavg_0",
+                "pt": "msg",
+                "to": "payload.loadavg.0",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.loadavg_1",
+                "pt": "msg",
+                "to": "payload.loadavg.1",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.loadavg_2",
+                "pt": "msg",
+                "to": "payload.loadavg.2",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.loadavg",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.timestamp",
+                "pt": "msg",
+                "to": "timestamp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 718,
+        "y": 373,
+        "wires": [
+            [
+                "a85a3c01.5f8ef"
+            ]
+        ]
+    },
+    {
+        "id": "c4ff3de2.26278",
+        "type": "moment",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "UTC",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "",
+        "locale": "POSIX",
+        "output": "timestamp",
+        "outputType": "msg",
+        "outTz": "UTC",
+        "x": 290,
+        "y": 257,
+        "wires": [
+            [
+                "129c2f4d.57d4e1",
+                "6b3e744b.f0badc",
+                "6c63c811.88f878"
+            ]
+        ]
+    },
+    {
+        "id": "91c7b58.fc2c148",
+        "type": "debug",
+        "z": "cc040e90.f2572",
+        "name": "sql output",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 1320,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "40a9525d.0af82c",
+        "type": "json",
+        "z": "cc040e90.f2572",
+        "name": "",
+        "x": 1306,
+        "y": 306,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4f253c.ae923b",
+        "type": "postgres",
+        "z": "cc040e90.f2572",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 1099,
+        "y": 355,
+        "wires": [
+            [
+                "40a9525d.0af82c"
+            ]
+        ]
+    },
+    {
+        "id": "e3db3058.857e6",
+        "type": "ui_dropdown",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "label": "Model Type",
+        "place": "random forest",
+        "group": "c05d9d5b.8a809",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "options": [
+            {
+                "label": "random forest",
+                "value": "forest",
+                "type": "str"
+            },
+            {
+                "label": "linear regression",
+                "value": "linear regression",
+                "type": "str"
+            },
+            {
+                "label": "decision tree",
+                "value": "decision tree",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 370,
+        "y": 60,
+        "wires": [
+            [
+                "1473d16b.905d0f"
+            ]
+        ]
+    },
+    {
+        "id": "a0ecf4a8.129808",
+        "type": "ui_button",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "group": "c05d9d5b.8a809",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Train model",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 112.51987838745117,
+        "y": 98.74998378753662,
+        "wires": [
+            [
+                "30dc34bc.471f2c"
+            ]
+        ]
+    },
+    {
+        "id": "61582c2b.dcef44",
+        "type": "ui_gauge",
+        "z": "a899a7cb.ba5888",
+        "name": "r2_score",
+        "group": "2d33e1b6.3dac6e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "R2 Score",
+        "label": "",
+        "format": "{{value}}",
+        "min": "-1",
+        "max": "1",
+        "colors": [
+            "#ff0000",
+            "#29bc5c",
+            "#6d947b"
+        ],
+        "seg1": "0.8",
+        "seg2": "0.9",
+        "x": 860,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "5d98ad40.d3e634",
+        "type": "ui_gauge",
+        "z": "a899a7cb.ba5888",
+        "name": "mean_abs_error",
+        "group": "2d33e1b6.3dac6e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "ROC Score",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 880,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3ccfccb.a1d0334",
+        "type": "ui_gauge",
+        "z": "a899a7cb.ba5888",
+        "name": "adjusted_r2_score",
+        "group": "2d33e1b6.3dac6e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Mean ABS Error",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "0.5",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 890,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a4cd8932.3b16e8",
+        "type": "ui_chart",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "group": "6954d8b6.ab5698",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Memory",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 640,
+        "y": 140,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "500867d6.47fc68",
+        "type": "ui_date_picker",
+        "z": "a99e64a2.d57e48",
+        "name": "date_from",
+        "label": "From",
+        "group": "6dffe5bf.8966bc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "date_from",
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "b33254ca.2cc7f8"
+            ]
+        ]
+    },
+    {
+        "id": "a85a6a5e.bd5a28",
+        "type": "ui_date_picker",
+        "z": "a99e64a2.d57e48",
+        "name": "date_to",
+        "label": "To      ",
+        "group": "6dffe5bf.8966bc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "date_to",
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "1978d9e3.32c6f6"
+            ]
+        ]
+    },
+    {
+        "id": "503b38ec.7e2078",
+        "type": "ui_button",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "group": "6dffe5bf.8966bc",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Search",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"msg_complete\":true}",
+        "payloadType": "json",
+        "topic": "search",
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "486698d8.a96838"
+            ]
+        ]
+    },
+    {
+        "id": "deaf2bda.a0c9c8",
+        "type": "ui_text",
+        "z": "9aa2a6ad.cf1138",
+        "group": "c05d9d5b.8a809",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last Trained",
+        "format": "{{msg.payload[2].timestamp}}",
+        "layout": "row-center",
+        "x": 790,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "159950ee.13de8f",
+        "type": "inject",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "topic": "",
+        "payload": "SELECT 1; SELECT * FROM train_output_summary; SELECT  * FROM model ORDER BY timestamp DESC LIMIT 1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [
+                "d89e4904.118888"
+            ]
+        ]
+    },
+    {
+        "id": "c03a6b8a.2f06d8",
+        "type": "postgres",
+        "z": "9aa2a6ad.cf1138",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Train Model",
+        "output": true,
+        "outputs": 1,
+        "x": 653.519905090332,
+        "y": 155.8863525390625,
+        "wires": [
+            [
+                "e7fb2d0e.009ae",
+                "deaf2bda.a0c9c8",
+                "f777fd2b.b17b5",
+                "23391017.aac4a"
+            ]
+        ]
+    },
+    {
+        "id": "e7fb2d0e.009ae",
+        "type": "debug",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 829.2584533691406,
+        "y": 101.4488525390625,
+        "wires": []
+    },
+    {
+        "id": "1473d16b.905d0f",
+        "type": "template",
+        "z": "9aa2a6ad.cf1138",
+        "name": "Train Model SQL",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DROP TABLE IF EXISTS train_output, train_output_group, train_output_summary;\nSELECT {{payload}}_train('ml_source',         -- source table\n                           'train_output',    -- output model table\n                           'timestamp',              -- id column\n                           'memusage',           -- response\n                           'freemem,totalmem,cpus_0_speed,cpus_1_speed,loadavg_0,loadavg_1,loadavg_2',   -- features\n                           NULL,              -- exclude columns\n                           NULL,              -- grouping columns\n                           20::integer,       -- number of trees\n                           2::integer,        -- number of random features\n                           TRUE::boolean,     -- variable importance\n                           1::integer,        -- num_permutations\n                           8::integer,        -- max depth\n                           3::integer,        -- min split\n                           1::integer,        -- min bucket\n                           10::integer        -- number of splits per continuous variable\n                           );\nINSERT INTO model (method) VALUES ('{{payload}}_train');\nCOMMIT;\nSELECT * FROM train_output_summary; \nSELECT  * FROM model ORDER BY timestamp DESC LIMIT 1;",
+        "output": "str",
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "e7fb2d0e.009ae",
+                "c03a6b8a.2f06d8"
+            ]
+        ]
+    },
+    {
+        "id": "700252ec.a0851c",
+        "type": "ui_template",
+        "z": "9aa2a6ad.cf1138",
+        "group": "54951a88.d93594",
+        "name": "Summary",
+        "order": 1,
+        "width": "6",
+        "height": "15",
+        "format": "<div layout=\"row\" layout-align=\"space-between\">\n    {{msg.payload}}\n</div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1080,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30dc34bc.471f2c",
+        "type": "timestamp",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "x": 264.5084991455078,
+        "y": 104.93465423583984,
+        "wires": [
+            [
+                "e3db3058.857e6"
+            ]
+        ]
+    },
+    {
+        "id": "d89e4904.118888",
+        "type": "postgres",
+        "z": "9aa2a6ad.cf1138",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "deaf2bda.a0c9c8",
+                "f777fd2b.b17b5"
+            ]
+        ]
+    },
+    {
+        "id": "94b1d88d.1ceb38",
+        "type": "tableify",
+        "z": "9aa2a6ad.cf1138",
+        "name": "",
+        "before": "",
+        "after": "",
+        "tableStyle": " ",
+        "theadStyle": " ",
+        "tbodyStyle": " ",
+        "trStyle": " ",
+        "tdStyle": " ",
+        "x": 880,
+        "y": 260,
+        "wires": [
+            [
+                "ea4991b3.c85c"
+            ]
+        ]
+    },
+    {
+        "id": "f777fd2b.b17b5",
+        "type": "change",
+        "z": "9aa2a6ad.cf1138",
+        "name": "msg.template",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[1]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 220,
+        "wires": [
+            [
+                "94b1d88d.1ceb38",
+                "e7fb2d0e.009ae"
+            ]
+        ]
+    },
+    {
+        "id": "ea4991b3.c85c",
+        "type": "change",
+        "z": "9aa2a6ad.cf1138",
+        "name": "msg.template",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "700252ec.a0851c"
+            ]
+        ]
+    },
+    {
+        "id": "e8d5afe1.2652b",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Evaluate Postgres",
+        "output": true,
+        "outputs": 1,
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "54c6f1b2.3c524",
+                "f584c832.9cd278",
+                "39c8e959.97e736"
+            ]
+        ]
+    },
+    {
+        "id": "70081e13.4bd21",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "topic": "",
+        "payload": "[\"test1\",\"test2\"]",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "54c6f1b2.3c524",
+                "f584c832.9cd278",
+                "39c8e959.97e736"
+            ]
+        ]
+    },
+    {
+        "id": "f1830da3.9f0a9",
+        "type": "debug",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 790,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "bfd120e0.ab754",
+        "type": "template",
+        "z": "a899a7cb.ba5888",
+        "name": "Evaluate SQL",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DROP TABLE IF EXISTS prediction_results CASCADE;\n\nSELECT forest_predict('train_output',\n                             'measures',\n                             'prediction_results',\n                             'response');\n                             \nCREATE OR REPLACE VIEW public.measures_predictions AS\n SELECT timestamp,prediction_results.estimated_memusage, measures.memusage \n   FROM prediction_results\n     JOIN measures USING (\"timestamp\");\n\nDROP TABLE IF EXISTS evaluation_R2;\n/*r2_score(table_in, table_out, prediction_col, observed_col, grouping_cols)*/\nSELECT r2_score('measures_predictions', 'evaluation_R2', 'estimated_memusage','memusage');\n\nDROP TABLE IF EXISTS evaluation_ROC;\nSELECT area_under_roc('measures_predictions', 'evaluation_ROC', 'estimated_memusage','memusage');\n\nDROP TABLE IF EXISTS evaluation_confusion;\nSELECT confusion_matrix('measures_predictions', 'evaluation_confusion', 'estimated_memusage','memusage');\n\nDROP TABLE IF EXISTS evaluation_MAR;\nSELECT mean_abs_error('measures_predictions', 'evaluation_MAR', 'estimated_memusage','memusage');",
+        "output": "str",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "e8d5afe1.2652b"
+            ]
+        ]
+    },
+    {
+        "id": "e35cd32a.2f55c",
+        "type": "link in",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "links": [
+            "23391017.aac4a"
+        ],
+        "x": 55,
+        "y": 220,
+        "wires": [
+            [
+                "bfd120e0.ab754"
+            ]
+        ]
+    },
+    {
+        "id": "23391017.aac4a",
+        "type": "link out",
+        "z": "9aa2a6ad.cf1138",
+        "name": "Evaluate",
+        "links": [
+            "e35cd32a.2f55c"
+        ],
+        "x": 826.5113372802734,
+        "y": 57.93181610107422,
+        "wires": []
+    },
+    {
+        "id": "999dd537.e57d38",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "Test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 97.51988220214844,
+        "y": 124.9772720336914,
+        "wires": [
+            [
+                "bfd120e0.ab754"
+            ]
+        ]
+    },
+    {
+        "id": "8f0c58cf.29d528",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Evaluate Postgres",
+        "output": true,
+        "outputs": 1,
+        "x": 570,
+        "y": 360,
+        "wires": [
+            [
+                "fbf0a2c6.b6ecf"
+            ]
+        ]
+    },
+    {
+        "id": "54c6f1b2.3c524",
+        "type": "template",
+        "z": "a899a7cb.ba5888",
+        "name": "Evaluate SQL R2",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * FROM evaluation_R2;\n",
+        "output": "str",
+        "x": 350,
+        "y": 360,
+        "wires": [
+            [
+                "8f0c58cf.29d528"
+            ]
+        ]
+    },
+    {
+        "id": "fbf0a2c6.b6ecf",
+        "type": "function",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "func": "rounded=Math.round(msg.payload[0].r2_score * 1000) / 1000\nmsg.payload=rounded\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 360,
+        "wires": [
+            [
+                "61582c2b.dcef44"
+            ]
+        ]
+    },
+    {
+        "id": "f584c832.9cd278",
+        "type": "template",
+        "z": "a899a7cb.ba5888",
+        "name": "Evaluate SQL ROC",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * FROM evaluation_ROC;\n",
+        "output": "str",
+        "x": 350,
+        "y": 420,
+        "wires": [
+            [
+                "9ead5049.6b98a"
+            ]
+        ]
+    },
+    {
+        "id": "9ead5049.6b98a",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Evaluate Postgres",
+        "output": true,
+        "outputs": 1,
+        "x": 570,
+        "y": 420,
+        "wires": [
+            [
+                "8a8c5abe.282b88"
+            ]
+        ]
+    },
+    {
+        "id": "8a8c5abe.282b88",
+        "type": "function",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "func": "rounded=Math.round(msg.payload[0].area_under_roc * 100) / 100\nmsg.payload=rounded\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 420,
+        "wires": [
+            [
+                "5d98ad40.d3e634"
+            ]
+        ]
+    },
+    {
+        "id": "39c8e959.97e736",
+        "type": "template",
+        "z": "a899a7cb.ba5888",
+        "name": "Evaluate SQL ROC",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * FROM evaluation_MAR;\n",
+        "output": "str",
+        "x": 370,
+        "y": 480,
+        "wires": [
+            [
+                "a14f239d.016ac"
+            ]
+        ]
+    },
+    {
+        "id": "a14f239d.016ac",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "Evaluate Postgres",
+        "output": true,
+        "outputs": 1,
+        "x": 570,
+        "y": 480,
+        "wires": [
+            [
+                "d5fc0b27.2c0338",
+                "f1830da3.9f0a9"
+            ]
+        ]
+    },
+    {
+        "id": "d5fc0b27.2c0338",
+        "type": "function",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "func": "rounded=Math.round(msg.payload[0].mean_abs_error * 100) / 100\nmsg.payload=rounded\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 480,
+        "wires": [
+            [
+                "3ccfccb.a1d0334",
+                "f1830da3.9f0a9"
+            ]
+        ]
+    },
+    {
+        "id": "3a0a9403.120a8c",
+        "type": "template",
+        "z": "de01fcd5.05de9",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT pmml('train_output');",
+        "output": "str",
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "76f129f4.88dd28"
+            ]
+        ]
+    },
+    {
+        "id": "76f129f4.88dd28",
+        "type": "postgres",
+        "z": "de01fcd5.05de9",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "df4401c4.d8461"
+            ]
+        ]
+    },
+    {
+        "id": "8263b509.417c08",
+        "type": "inject",
+        "z": "de01fcd5.05de9",
+        "name": "test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 77.78976440429688,
+        "y": 100.9715805053711,
+        "wires": [
+            [
+                "3a0a9403.120a8c"
+            ]
+        ]
+    },
+    {
+        "id": "df4401c4.d8461",
+        "type": "debug",
+        "z": "de01fcd5.05de9",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 530,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "6ba8d9ea.d70d18",
+        "type": "change",
+        "z": "f8289694.a08da8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "action",
+                "pt": "msg",
+                "to": "restore",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 589.5,
+        "y": 53,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8829fac1.727588",
+        "type": "json",
+        "z": "f8289694.a08da8",
+        "name": "",
+        "x": 175.5,
+        "y": 85,
+        "wires": [
+            [
+                "6ba8d9ea.d70d18"
+            ]
+        ]
+    },
+    {
+        "id": "8137a342.b5791",
+        "type": "catch",
+        "z": "f8289694.a08da8",
+        "name": "",
+        "scope": [
+            "8829fac1.727588"
+        ],
+        "x": 183.5,
+        "y": 117,
+        "wires": [
+            [
+                "1ae841b8.ceaeae"
+            ]
+        ]
+    },
+    {
+        "id": "1ae841b8.ceaeae",
+        "type": "change",
+        "z": "f8289694.a08da8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 354.5,
+        "y": 116,
+        "wires": [
+            [
+                "6ba8d9ea.d70d18"
+            ]
+        ]
+    },
+    {
+        "id": "c0b19b2d.9d5c08",
+        "type": "inject",
+        "z": "f8289694.a08da8",
+        "name": "Trigger restore",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 618.5,
+        "y": 169,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b76c2615.95c728",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "Get Min MAX",
+        "topic": "",
+        "payload": "SELECT least(s.min_y,s.min_x), greatest(s.max_y,s.max_x)         FROM (             SELECT min(estimated_memusage) as min_y,                     min(memusage) as min_x,                     max(estimated_memusage) as max_y,                     max(memusage) as max_x             FROM measures_predictions LIMIT 10        ) as s ;",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 210,
+        "y": 700,
+        "wires": [
+            [
+                "c5ad9bfc.2090f8"
+            ]
+        ]
+    },
+    {
+        "id": "37524a2d.60ade6",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 440,
+        "y": 820,
+        "wires": [
+            [
+                "6581aeca.3e9a3"
+            ]
+        ]
+    },
+    {
+        "id": "fa4ee6f9.ccbdb8",
+        "type": "debug",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1090,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "6581aeca.3e9a3",
+        "type": "function",
+        "z": "a899a7cb.ba5888",
+        "name": "Generate Data",
+        "func": "values=msg.payload\nmsg.action= \"load\"\nmsgr=[]\nmsgr[0]={topic:\"Values\", data:values}\nmsgr[1]={topic:\"Reference\", data:[{x:70,y:70},{x:80,y:80}]}\nmsg.payload=msgr\nreturn msg",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 640,
+        "y": 840,
+        "wires": [
+            [
+                "a31ee9ba.28b478",
+                "fa4ee6f9.ccbdb8"
+            ],
+            [
+                "9714ce52.b3eb5"
+            ]
+        ]
+    },
+    {
+        "id": "74989077.7faaa",
+        "type": "postgres",
+        "z": "a899a7cb.ba5888",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 600,
+        "y": 740,
+        "wires": [
+            [
+                "e1f5bf9d.d53d2"
+            ]
+        ]
+    },
+    {
+        "id": "1c19022d.cbeade",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "Get Data",
+        "topic": "",
+        "payload": "SELECT round(cast(estimated_memusage as numeric),2) as y, memusage as x FROM measures_predictions LIMIT 200",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 280,
+        "y": 820,
+        "wires": [
+            [
+                "37524a2d.60ade6",
+                "c5ad9bfc.2090f8"
+            ]
+        ]
+    },
+    {
+        "id": "6ad2cc3.bfd6134",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "topic": "",
+        "payload": "[{\"topic\":\"Values\",\"data\":[{\"x\":75.35,\"y\":75.45}]},{\"topic\":\"Reference\",\"data\":[{\"x\":75.3,\"y\":75.5}]}]",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 431.51133728027344,
+        "y": 900.886360168457,
+        "wires": [
+            [
+                "9714ce52.b3eb5"
+            ]
+        ]
+    },
+    {
+        "id": "9714ce52.b3eb5",
+        "type": "ui_template",
+        "z": "a899a7cb.ba5888",
+        "group": "6b686bdf.fa8074",
+        "name": "scatter plot",
+        "order": 9,
+        "width": "8",
+        "height": "8",
+        "format": "\n<script src=\"/Chart.bundle.min.js\"></script>\n<canvas id=\"scatter\" width=\"300\" height=\"300\"></canvas>\n<script>\n(function() {\n    var chartID = \"scatter\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"Values\",    // used here not by chart.js\n                label: \"Actual Values\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                showLine:false,\n                data: []  // data is written here later\n            }, {\n                topic: \"Reference\",    // used here not by chart.js\n                label: \"Reference\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#ff0000\",\n                pointRadius: 0,\n                pointHoverRadius: 5,\n                pointBorderColor: \"#ff0000\",\n                pointBackgroundColor: \"#ff0000\",\n                backgroundColor:  \"#ff0000\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                    type: 'linear',\n                    position: 'bottom',\n                    ticks: {\n                         min: 0,\n                        max: 100,\n                        stepSize: 10\n                    },\n\t\t\t\t\tscaleLabel: {\n                    \tdisplay: true,\n                    \tlabelString: \"Actual Values\"\n                        }\n                    }\n                ],\n                yAxes: [{\n                    id: \"1\",\n                    ticks: {\n                         min: 0,\n                        max: 100,\n                        stepSize: 10\n                    },\n    \t\t\t\tscaleLabel: {\n                    \tdisplay: true,\n                    \tlabelString: \"Predicted Values\"\n                        }\n                }]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                if (typeof msg.chart_min != 'undefined') {\n                    console.log(\"-------chartmin=\" + msg.chart_min)\n                }\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n    };\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "templateScope": "local",
+        "x": 830,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf442423.a1eda8",
+        "type": "debug",
+        "z": "a899a7cb.ba5888",
+        "name": "View data object",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 873.4500427246094,
+        "y": 1016.1166687011719,
+        "wires": []
+    },
+    {
+        "id": "5d784293.eb1d9c",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "Reset",
+        "topic": "Reset",
+        "payload": "{\"_msgid\":\"857729df.bc54f8\",\"topic\":\"Reset\",\"payload\":[{\"topic\":\"Values\",\"data\":[]},{\"topic\":\"Reference\",\"data\":[]}],\"action\":\"load\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 483.4500427246094,
+        "y": 1096.1166687011719,
+        "wires": [
+            [
+                "bf442423.a1eda8"
+            ]
+        ]
+    },
+    {
+        "id": "ee51c2d7.9f487",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "topic": "load",
+        "payload": "[{\"topic\":\"Values\",\"data\":[{\"x\":0,\"y\":0},{\"x\":1,\"y\":2},{\"x\":2,\"y\":5}]},{\"topic\":\"Reference\",\"data\":[{\"x\":0,\"y\":0},{\"x\":10,\"y\":10}]}]",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 483.4500427246094,
+        "y": 1176.1166687011719,
+        "wires": [
+            [
+                "1f32d121.0cc83f"
+            ]
+        ]
+    },
+    {
+        "id": "1f32d121.0cc83f",
+        "type": "change",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "action",
+                "pt": "msg",
+                "to": "load",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 673.4500427246094,
+        "y": 1176.1166687011719,
+        "wires": [
+            [
+                "bf442423.a1eda8"
+            ]
+        ]
+    },
+    {
+        "id": "e1f5bf9d.d53d2",
+        "type": "change",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "chart_min",
+                "pt": "flow",
+                "to": "payload[0].least",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "chart_min",
+                "pt": "msg",
+                "to": "payload[0].least",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 680,
+        "wires": [
+            [
+                "a31ee9ba.28b478"
+            ]
+        ]
+    },
+    {
+        "id": "a31ee9ba.28b478",
+        "type": "join",
+        "z": "a899a7cb.ba5888",
+        "name": "Join Param & Data",
+        "mode": "custom",
+        "build": "merged",
+        "property": "",
+        "propertyType": "full",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "x": 1010,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5ad9bfc.2090f8",
+        "type": "change",
+        "z": "a899a7cb.ba5888",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SELECT least(s.min_y,s.min_x), greatest(s.max_y,s.max_x)         FROM (             SELECT min(estimated_memusage) as min_y,                     min(memusage) as min_x,                     max(estimated_memusage) as max_y,                     max(memusage) as max_x             FROM measures_predictions LIMIT 10        ) as s ;",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 720,
+        "wires": [
+            [
+                "74989077.7faaa"
+            ]
+        ]
+    },
+    {
+        "id": "997439a0.b63548",
+        "type": "link in",
+        "z": "4456c24d.1b6d3c",
+        "name": "cpu",
+        "links": [
+            "6bbf0e63.164e5"
+        ],
+        "x": 155,
+        "y": 220,
+        "wires": [
+            [
+                "142027fa.db39d8"
+            ]
+        ]
+    },
+    {
+        "id": "e9fc7a7b.c54e38",
+        "type": "link in",
+        "z": "4456c24d.1b6d3c",
+        "name": "load",
+        "links": [
+            "a8be0212.d65eb"
+        ],
+        "x": 155,
+        "y": 440,
+        "wires": [
+            [
+                "8749a551.5aa938"
+            ]
+        ]
+    },
+    {
+        "id": "5a554e1b.1d3a9",
+        "type": "link in",
+        "z": "4456c24d.1b6d3c",
+        "name": "mem",
+        "links": [
+            "2d978a1d.8bc8f6"
+        ],
+        "x": 158.33333333333337,
+        "y": 125.55555555555557,
+        "wires": [
+            [
+                "fa7051ca.7310b"
+            ]
+        ]
+    },
+    {
+        "id": "6bbf0e63.164e5",
+        "type": "link out",
+        "z": "cc040e90.f2572",
+        "name": "cpu",
+        "links": [
+            "997439a0.b63548"
+        ],
+        "x": 535,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a8be0212.d65eb",
+        "type": "link out",
+        "z": "cc040e90.f2572",
+        "name": "load",
+        "links": [
+            "e9fc7a7b.c54e38"
+        ],
+        "x": 515,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2d978a1d.8bc8f6",
+        "type": "link out",
+        "z": "cc040e90.f2572",
+        "name": "mem",
+        "links": [
+            "5a554e1b.1d3a9"
+        ],
+        "x": 515,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2cbcb052.cad3c",
+        "type": "debug",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 650,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "fa7051ca.7310b",
+        "type": "split",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "topic",
+        "x": 282.77777777777777,
+        "y": 138.88888888888889,
+        "wires": [
+            [
+                "a4cd8932.3b16e8"
+            ]
+        ]
+    },
+    {
+        "id": "142027fa.db39d8",
+        "type": "change",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.cpu0_speed",
+                "pt": "msg",
+                "to": "payload.cpus[0].speed",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.cpu1_speed",
+                "pt": "msg",
+                "to": "payload.cpus[1].speed",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.cpu1_times",
+                "pt": "msg",
+                "to": "payload.cpus[1].times",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.cpus",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "6f049604.d82e48"
+            ]
+        ]
+    },
+    {
+        "id": "6f049604.d82e48",
+        "type": "split",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "topic",
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "173a5d81.a75702"
+            ]
+        ]
+    },
+    {
+        "id": "63a64e32.17847",
+        "type": "ui_chart",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "group": "f1a87ed8.ae453",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Cpu",
+        "chartType": "pie",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": "1",
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 1070,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "395e68b6.805f18",
+        "type": "ui_gauge",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "group": "f1a87ed8.ae453",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Cpu 1 Speed",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5104",
+        "colors": [
+            "#ecffec",
+            "#00ffff",
+            "#ca3838"
+        ],
+        "seg1": "2500",
+        "seg2": "2600",
+        "x": 830,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1e825918.362fc7",
+        "type": "ui_gauge",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "group": "f1a87ed8.ae453",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Cpu 2 Speed",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5104",
+        "colors": [
+            "#ecffec",
+            "#00ffff",
+            "#ca3838"
+        ],
+        "seg1": "2500",
+        "seg2": "2600",
+        "x": 830,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "173a5d81.a75702",
+        "type": "switch",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "cpu0_speed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "cpu1_speed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "cpu1_times",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "cpu2_times",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 4,
+        "x": 630,
+        "y": 220,
+        "wires": [
+            [
+                "395e68b6.805f18"
+            ],
+            [
+                "1e825918.362fc7"
+            ],
+            [
+                "1f2cea11.50e6b6"
+            ],
+            [
+                "1f2cea11.50e6b6"
+            ]
+        ]
+    },
+    {
+        "id": "1f2cea11.50e6b6",
+        "type": "split",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "topic",
+        "x": 790,
+        "y": 320,
+        "wires": [
+            [
+                "1462b278.8b208e"
+            ]
+        ]
+    },
+    {
+        "id": "1462b278.8b208e",
+        "type": "switch",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "idle",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "nice",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "irq",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "user",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "sys",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 5,
+        "x": 910,
+        "y": 320,
+        "wires": [
+            [],
+            [],
+            [],
+            [
+                "63a64e32.17847"
+            ],
+            [
+                "63a64e32.17847"
+            ]
+        ]
+    },
+    {
+        "id": "a6ad1c54.2f563",
+        "type": "split",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "topic",
+        "x": 470,
+        "y": 440,
+        "wires": [
+            [
+                "2cbcb052.cad3c",
+                "2db4d6ea.b4156a"
+            ]
+        ]
+    },
+    {
+        "id": "8749a551.5aa938",
+        "type": "change",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.loadavg_0",
+                "pt": "msg",
+                "to": "payload.loadavg[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.loadavg_1",
+                "pt": "msg",
+                "to": "payload.loadavg[1]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.loadavg_2",
+                "pt": "msg",
+                "to": "payload.loadavg[2]",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.loadavg",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 440,
+        "wires": [
+            [
+                "a6ad1c54.2f563"
+            ]
+        ]
+    },
+    {
+        "id": "7692ed75.6396d4",
+        "type": "link out",
+        "z": "4456c24d.1b6d3c",
+        "name": "inject_source_rt",
+        "links": [
+            "59c8ba7b.7b3214"
+        ],
+        "x": 195,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "49b9c312.fd683c",
+        "type": "inject",
+        "z": "4456c24d.1b6d3c",
+        "name": "inject data",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 80,
+        "y": 40,
+        "wires": [
+            [
+                "7692ed75.6396d4"
+            ]
+        ]
+    },
+    {
+        "id": "59c8ba7b.7b3214",
+        "type": "link in",
+        "z": "cc040e90.f2572",
+        "name": "inject_data",
+        "links": [
+            "7692ed75.6396d4"
+        ],
+        "x": 191.66666666666666,
+        "y": 113.33333333333333,
+        "wires": [
+            [
+                "c4ff3de2.26278"
+            ]
+        ]
+    },
+    {
+        "id": "2db4d6ea.b4156a",
+        "type": "ui_chart",
+        "z": "4456c24d.1b6d3c",
+        "name": "",
+        "group": "6954d8b6.ab5698",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Load",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0.1",
+        "ymax": "1",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 650,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "85d9bbbc.6d2488",
+        "type": "debug",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1210,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "894a2596.5cb3c8",
+        "type": "inject",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "f468c3a6.e6b17"
+            ]
+        ]
+    },
+    {
+        "id": "486698d8.a96838",
+        "type": "change",
+        "z": "a99e64a2.d57e48",
+        "name": "complete",
+        "rules": [
+            {
+                "t": "set",
+                "p": "complete",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "7d1d44a6.d3157c"
+            ]
+        ]
+    },
+    {
+        "id": "f2f7eee6.1e77a",
+        "type": "template",
+        "z": "a99e64a2.d57e48",
+        "name": "sql template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT to_char(timestamp, 'YYYY-MM-dd\"T\"HH12:MI:SS') as timestamp,loadavg_1,loadavg_2,loadavg_0 FROM measures\nWHERE timestamp > to_timestamp({{payload.date_from}}) AT TIME ZONE 'UTC'\nAND\t  timestamp < to_timestamp({{payload.date_to}}) AT TIME ZONE 'UTC'\nLIMIT 100",
+        "output": "str",
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "8f980f87.c9d3a",
+                "85d9bbbc.6d2488"
+            ]
+        ]
+    },
+    {
+        "id": "8f980f87.c9d3a",
+        "type": "postgres",
+        "z": "a99e64a2.d57e48",
+        "postgresdb": "70ac804.af5e28",
+        "name": "",
+        "output": true,
+        "outputs": 1,
+        "x": 880,
+        "y": 200,
+        "wires": [
+            [
+                "85d9bbbc.6d2488",
+                "ca18f7.c7fae708"
+            ]
+        ]
+    },
+    {
+        "id": "7d1d44a6.d3157c",
+        "type": "function",
+        "z": "a99e64a2.d57e48",
+        "name": "round",
+        "func": "\nmsg.payload.date_from=Math.round(flow.get('date_from'))/1000 || 0\nmsg.payload.date_to=Math.round(flow.get('date_to'))/1000 || 0\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690,
+        "y": 280,
+        "wires": [
+            [
+                "f2f7eee6.1e77a"
+            ]
+        ]
+    },
+    {
+        "id": "b33254ca.2cc7f8",
+        "type": "change",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "date_from",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1978d9e3.32c6f6",
+        "type": "change",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "date_to",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ca18f7.c7fae708",
+        "type": "function",
+        "z": "a99e64a2.d57e48",
+        "name": "chart data",
+        "func": "measures=[\"loadavg_0\",\"loadavg_1\",\"loadavg_2\"]\n\npl=[]\nfor (m=0; m<measures.length; m++){\n    key=measures[m]\n    t={\"topic\": key, \"data\":[]}\n    pl.push(t)\n}\n\nfor (i=0; i<msg.payload.length; i++){\n    for (m=0; m<measures.length; m++){\n        key=measures[m]\n        l={\"x\":msg.payload[i].timestamp, y:msg.payload[i][key]}\n        //l={\"x\":Math.random().toString() , \"y\":msg.payload[i][key]}\n        pl[m].data[i]=l\n    }\n}\nmsg2={\n    \"action\" : \"load\",\n    \"payload\" : pl\n}\nreturn msg2;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1040,
+        "y": 200,
+        "wires": [
+            [
+                "85d9bbbc.6d2488",
+                "daa1d85c.b13c68"
+            ]
+        ]
+    },
+    {
+        "id": "94e66ea8.7cc76",
+        "type": "inject",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "topic": "",
+        "payload": "2017-01-01T00:00:00.000Z",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "500867d6.47fc68"
+            ]
+        ]
+    },
+    {
+        "id": "b32b83e5.050a1",
+        "type": "moment",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "topic": "",
+        "input": "",
+        "inputType": "msg",
+        "inTz": "",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "",
+        "locale": "",
+        "output": "",
+        "outputType": "msg",
+        "outTz": "",
+        "x": 440,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f468c3a6.e6b17",
+        "type": "moment",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "UTC",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "",
+        "locale": "POSIX",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "UTC",
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "a85a6a5e.bd5a28"
+            ]
+        ]
+    },
+    {
+        "id": "194291e1.22ecfe",
+        "type": "template",
+        "z": "a899a7cb.ba5888",
+        "name": "send data",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n\"topic\":\"\",\n\"payload\":[\n    {\"topic\":\"Values\",\n\t\t\"data\":[{\"y\":\"75.32\",\"x\":\"75.37\"},{\"y\":\"75.32\",\"x\":\"75.37\"}]},\n\t{\"topic\":\"Reference\",\n\t\t\"data\":[{\"x\":70,\"y\":70},{\"x\":80,\"y\":80}]}],\n\"_msgid\":\"e672c8fd.9cb7d8\",\"queryParameters\":{},\"action\":\"load\"}",
+        "output": "json",
+        "x": 480,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "78363214.12424c",
+        "type": "inject",
+        "z": "a899a7cb.ba5888",
+        "name": "test",
+        "topic": "Reset",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 330,
+        "y": 980,
+        "wires": [
+            [
+                "194291e1.22ecfe"
+            ]
+        ]
+    },
+    {
+        "id": "daa1d85c.b13c68",
+        "type": "change",
+        "z": "a99e64a2.d57e48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "action",
+                "pt": "msg",
+                "to": "load",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1240,
+        "y": 200,
+        "wires": [
+            [
+                "b658704b.61b0e"
+            ]
+        ]
+    },
+    {
+        "id": "b658704b.61b0e",
+        "type": "ui_template",
+        "z": "a99e64a2.d57e48",
+        "group": "90b744ed.ba1028",
+        "name": "Timeseries",
+        "order": 1,
+        "width": "21",
+        "height": "14",
+        "format": "\n<canvas id=\"tet\" width=\"500\" height=\"250\"></canvas>\n<script>\n(function() {\n    var chartID = \"tet\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"loadavg_0\",    // used here not by chart.js\n                label: \"loadavg_0\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                showLine: true,\n                data: []  // data is written here later\n            }, {\n                topic: \"loadavg_1\",    // used here not by chart.js\n                label: \"loadavg_1\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#1E86A8\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#1E86A8\",\n                pointBackgroundColor: \"#1E86A8\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }, {\n                topic: \"loadavg_2\",    // used here not by chart.js\n                label: \"loadavg_2\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#8FDBC0\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#8FDBC0\",\n                pointBackgroundColor: \"#8FDBC0\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                    type: 'time',\n                    position: 'bottom'\n                    }\n                ],\n                yAxes: [{\n                    id: \"1\",\n                    ticks: {\n                        min: 0,\n                        max: 0.6,\n                        stepSize: 0.2\n                    }\n                }, 1]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n    };\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "templateScope": "local",
+        "x": 1490,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    }
+]
