@@ -249,11 +249,11 @@
 		"id": "90b744ed.ba1028",
 		"type": "ui_group",
 		"z": "",
-		"name": "Charts_1",
+		"name": "Load",
 		"tab": "51d28439.f5869c",
 		"order": 2,
 		"disp": true,
-		"width": "6"
+		"width": "33"
 	},
 	{
 		"id": "170e7cec.458543",
@@ -299,18 +299,10 @@
 		"type": "ui_group",
 		"z": "",
 		"name": "Chart with integer X axis",
-		"tab": "3a61d57a.2a93aa",
+		"tab": "",
 		"order": 1,
 		"disp": true,
 		"width": "12"
-	},
-	{
-		"id": "3a61d57a.2a93aa",
-		"type": "ui_tab",
-		"z": "",
-		"name": "Chart.js example",
-		"icon": "dashboard",
-		"order": 2
 	},
 	{
 		"id": "2d33e1b6.3dac6e",
@@ -320,14 +312,14 @@
 		"tab": "3088169e.2d672a",
 		"order": 2,
 		"disp": true,
-		"width": "6"
+		"width": "4"
 	},
 	{
 		"id": "db17734f.6991d",
 		"type": "ui_group",
 		"z": "",
 		"name": "Scatter Group",
-		"tab": "3a61d57a.2a93aa",
+		"tab": "",
 		"order": 2,
 		"disp": true,
 		"width": "6"
@@ -337,7 +329,7 @@
 		"type": "ui_group",
 		"z": "",
 		"name": "nvd3",
-		"tab": "3a61d57a.2a93aa",
+		"tab": "",
 		"disp": true,
 		"width": "6"
 	},
@@ -390,18 +382,11 @@
 		"order": 2
 	},
 	{
-		"id": "528b055.5c977fc",
-		"type": "ui_tab",
-		"z": "",
-		"name": "test",
-		"icon": "dashboard"
-	},
-	{
 		"id": "e7f170a5.a6b3d",
 		"type": "ui_group",
 		"z": "",
 		"name": "test",
-		"tab": "528b055.5c977fc",
+		"tab": "",
 		"disp": true,
 		"width": "27"
 	},
@@ -416,37 +401,21 @@
 		"width": "12"
 	},
 	{
-		"id": "38a50325.0ebcac",
-		"type": "ui_tab",
-		"z": "",
-		"name": "Chart.js example",
-		"icon": "dashboard",
-		"order": 2
-	},
-	{
 		"id": "22e8d22d.36643e",
 		"type": "ui_group",
 		"z": "",
 		"name": "Chart with integer X axis",
-		"tab": "9b7ed2d9.aec3a",
+		"tab": "",
 		"order": 1,
 		"disp": true,
 		"width": "12"
-	},
-	{
-		"id": "9b7ed2d9.aec3a",
-		"type": "ui_tab",
-		"z": "",
-		"name": "Chart.js example",
-		"icon": "dashboard",
-		"order": 2
 	},
 	{
 		"id": "5deba637.69ab58",
 		"type": "ui_group",
 		"z": "",
 		"name": "test",
-		"tab": "528b055.5c977fc",
+		"tab": "",
 		"disp": true,
 		"width": "6"
 	},
@@ -455,18 +424,40 @@
 		"type": "ui_group",
 		"z": "",
 		"name": "Chart with integer X axis",
-		"tab": "79d4ebca.8282a4",
+		"tab": "",
 		"order": 1,
 		"disp": true,
 		"width": "12"
 	},
 	{
-		"id": "79d4ebca.8282a4",
-		"type": "ui_tab",
+		"id": "f0445a79.2c9f78",
+		"type": "ui_group",
 		"z": "",
-		"name": "Chart.js example",
-		"icon": "dashboard",
-		"order": 2
+		"name": "Chart with integer X axis",
+		"tab": "",
+		"order": 1,
+		"disp": true,
+		"width": "12"
+	},
+	{
+		"id": "db0223fa.aba1",
+		"type": "ui_group",
+		"z": "",
+		"name": "Chart with integer X axis",
+		"tab": "",
+		"order": 1,
+		"disp": true,
+		"width": "12"
+	},
+	{
+		"id": "359f8ee7.dcef32",
+		"type": "ui_group",
+		"z": "",
+		"name": "Prediction",
+		"tab": "d45fff38.2540a",
+		"order": 3,
+		"disp": true,
+		"width": "6"
 	},
 	{
 		"id": "476badca.a1a554",
@@ -533,8 +524,8 @@
 		"repeat": "5",
 		"crontab": "",
 		"once": false,
-		"x": 198.5,
-		"y": 159,
+		"x": 190,
+		"y": 60,
 		"wires": [
 			[
 				"c4ff3de2.26278"
@@ -899,9 +890,9 @@
 		"dot": false,
 		"ymin": "",
 		"ymax": "",
-		"removeOlder": 1,
+		"removeOlder": "30",
 		"removeOlderPoints": "",
-		"removeOlderUnit": "3600",
+		"removeOlderUnit": "60",
 		"cutout": 0,
 		"colors": [
 			"#1f77b4",
@@ -916,86 +907,6 @@
 		],
 		"x": 640,
 		"y": 140,
-		"wires": [
-			[],
-			[]
-		]
-	},
-	{
-		"id": "45e81ac1.8ac804",
-		"type": "ui_chart",
-		"z": "a99e64a2.d57e48",
-		"name": "",
-		"group": "170e7cec.458543",
-		"order": 1,
-		"width": 0,
-		"height": 0,
-		"label": "CPU",
-		"chartType": "line",
-		"legend": "false",
-		"xformat": "HH:mm:ss",
-		"interpolate": "linear",
-		"nodata": "",
-		"dot": false,
-		"ymin": "",
-		"ymax": "",
-		"removeOlder": 1,
-		"removeOlderPoints": "",
-		"removeOlderUnit": "3600",
-		"cutout": 0,
-		"colors": [
-			"#1f77b4",
-			"#aec7e8",
-			"#ff7f0e",
-			"#2ca02c",
-			"#98df8a",
-			"#d62728",
-			"#ff9896",
-			"#9467bd",
-			"#c5b0d5"
-		],
-		"x": 710,
-		"y": 360,
-		"wires": [
-			[],
-			[]
-		]
-	},
-	{
-		"id": "a6cdc982.c1f3f8",
-		"type": "ui_chart",
-		"z": "a99e64a2.d57e48",
-		"name": "",
-		"group": "90b744ed.ba1028",
-		"order": 1,
-		"width": 0,
-		"height": 0,
-		"label": "MEM",
-		"chartType": "line",
-		"legend": "false",
-		"xformat": "HH:mm:ss",
-		"interpolate": "linear",
-		"nodata": "",
-		"dot": false,
-		"ymin": "",
-		"ymax": "",
-		"removeOlder": 1,
-		"removeOlderPoints": "",
-		"removeOlderUnit": "3600",
-		"cutout": 0,
-		"colors": [
-			"#1f77b4",
-			"#aec7e8",
-			"#ff7f0e",
-			"#2ca02c",
-			"#98df8a",
-			"#d62728",
-			"#ff9896",
-			"#9467bd",
-			"#c5b0d5"
-		],
-		"x": 715.0057067871094,
-		"y": 414.00568199157715,
 		"wires": [
 			[],
 			[]
@@ -1125,7 +1036,7 @@
 		"type": "debug",
 		"z": "9aa2a6ad.cf1138",
 		"name": "",
-		"active": true,
+		"active": false,
 		"console": "false",
 		"complete": "true",
 		"x": 829.2584533691406,
@@ -1321,18 +1232,6 @@
 		]
 	},
 	{
-		"id": "f1830da3.9f0a9",
-		"type": "debug",
-		"z": "a899a7cb.ba5888",
-		"name": "",
-		"active": true,
-		"console": "false",
-		"complete": "false",
-		"x": 790,
-		"y": 560,
-		"wires": []
-	},
-	{
 		"id": "bfd120e0.ab754",
 		"type": "template",
 		"z": "a899a7cb.ba5888",
@@ -1363,7 +1262,8 @@
 		"y": 220,
 		"wires": [
 			[
-				"bfd120e0.ab754"
+				"bfd120e0.ab754",
+				"c249327a.5d61f"
 			]
 		]
 	},
@@ -1438,7 +1338,7 @@
 		"type": "function",
 		"z": "a899a7cb.ba5888",
 		"name": "",
-		"func": "rounded=Math.round(msg.payload[0].r2_score * 100) / 100\nmsg.payload=rounded\nreturn msg;",
+		"func": "rounded=Math.round(msg.payload[0].r2_score * 1000) / 1000\nmsg.payload=rounded\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"x": 730,
@@ -1531,8 +1431,7 @@
 		"y": 480,
 		"wires": [
 			[
-				"d5fc0b27.2c0338",
-				"f1830da3.9f0a9"
+				"d5fc0b27.2c0338"
 			]
 		]
 	},
@@ -1548,8 +1447,7 @@
 		"y": 480,
 		"wires": [
 			[
-				"3ccfccb.a1d0334",
-				"f1830da3.9f0a9"
+				"3ccfccb.a1d0334"
 			]
 		]
 	},
@@ -1744,8 +1642,8 @@
 		"name": "",
 		"output": true,
 		"outputs": 1,
-		"x": 440,
-		"y": 820,
+		"x": 568,
+		"y": 818,
 		"wires": [
 			[
 				"6581aeca.3e9a3"
@@ -1757,11 +1655,11 @@
 		"type": "debug",
 		"z": "a899a7cb.ba5888",
 		"name": "",
-		"active": true,
+		"active": false,
 		"console": "false",
 		"complete": "true",
-		"x": 1090,
-		"y": 840,
+		"x": 1065.000015258789,
+		"y": 810.0000114440918,
 		"wires": []
 	},
 	{
@@ -1772,13 +1670,13 @@
 		"func": "values=msg.payload\nmsg.action= \"load\"\nmsgr=[]\nmsgr[0]={topic:\"Values\", data:values}\nmsgr[1]={topic:\"Reference\", data:[{x:70,y:70},{x:80,y:80}]}\nmsg.payload=msgr\nreturn msg",
 		"outputs": "2",
 		"noerr": 0,
-		"x": 640,
-		"y": 840,
+		"x": 726,
+		"y": 817,
 		"wires": [
 			[
-				"9714ce52.b3eb5",
 				"a31ee9ba.28b478",
-				"fa4ee6f9.ccbdb8"
+				"fa4ee6f9.ccbdb8",
+				"8d974615.1b7308"
 			],
 			[]
 		]
@@ -1805,135 +1703,17 @@
 		"z": "a899a7cb.ba5888",
 		"name": "Get Data",
 		"topic": "",
-		"payload": "SELECT round(cast(estimated_memusage as numeric),2) as y, memusage as x FROM measures_predictions",
+		"payload": "SELECT round(cast(estimated_memusage as numeric),2) as y, memusage as x FROM measures_predictions LIMIT 100",
 		"payloadType": "str",
 		"repeat": "",
 		"crontab": "",
 		"once": true,
-		"x": 280,
-		"y": 820,
+		"x": 247,
+		"y": 808,
 		"wires": [
 			[
-				"37524a2d.60ade6",
-				"c5ad9bfc.2090f8"
-			]
-		]
-	},
-	{
-		"id": "6ad2cc3.bfd6134",
-		"type": "inject",
-		"z": "a899a7cb.ba5888",
-		"name": "",
-		"topic": "",
-		"payload": "[{\"topic\":\"Values\",\"data\":[{\"x\":0.5,\"y\":5}]},{\"topic\":\"Reference\",\"data\":[{\"x\":0.1,\"y\":10}]}]",
-		"payloadType": "json",
-		"repeat": "",
-		"crontab": "",
-		"once": false,
-		"x": 431.51133728027344,
-		"y": 900.886360168457,
-		"wires": [
-			[
-				"9714ce52.b3eb5",
-				"fa4ee6f9.ccbdb8"
-			]
-		]
-	},
-	{
-		"id": "9714ce52.b3eb5",
-		"type": "ui_template",
-		"z": "a899a7cb.ba5888",
-		"group": "6b686bdf.fa8074",
-		"name": "scatter plot",
-		"order": 9,
-		"width": "8",
-		"height": "8",
-		"format": "\n<script src=\"/Chart.bundle.min.js\"></script>\n<canvas id=\"myChartSimple1\" width=\"300\" height=\"300\"></canvas>\n<script>\n(function() {\n    var chartID = \"myChartSimple1\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"Values\",    // used here not by chart.js\n                label: \"Actual Values\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                showLine:false,\n                data: []  // data is written here later\n            }, {\n                topic: \"Reference\",    // used here not by chart.js\n                label: \"Reference\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#ff0000\",\n                pointRadius: 0,\n                pointHoverRadius: 5,\n                pointBorderColor: \"#ff0000\",\n                pointBackgroundColor: \"#ff0000\",\n                backgroundColor:  \"#ff0000\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                    type: 'linear',\n                    position: 'bottom',\n                    ticks: {\n                         min: 75.3,\n                        max: 75.5,\n                        stepSize: 0.1\n                    },\n\t\t\t\t\tscaleLabel: {\n                    \tdisplay: true,\n                    \tlabelString: \"Actual Values\"\n                        }\n                    }\n                ],\n                yAxes: [{\n                    id: \"1\",\n                    ticks: {\n                         min: 75.3,\n                        max: 75.5,\n                        stepSize: 0.1\n                    },\n    \t\t\t\tscaleLabel: {\n                    \tdisplay: true,\n                    \tlabelString: \"Predicted Values\"\n                        }\n                }]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                if (typeof msg.chart_min != 'undefined') {\n                    console.log(\"-------chartmin=\" + msg.chart_min)\n                }\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n    };\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
-		"storeOutMessages": false,
-		"fwdInMessages": false,
-		"templateScope": "local",
-		"x": 830,
-		"y": 920,
-		"wires": [
-			[]
-		]
-	},
-	{
-		"id": "bf442423.a1eda8",
-		"type": "debug",
-		"z": "a899a7cb.ba5888",
-		"name": "View data object",
-		"active": true,
-		"console": "false",
-		"complete": "true",
-		"x": 873.4500427246094,
-		"y": 1016.1166687011719,
-		"wires": []
-	},
-	{
-		"id": "5d784293.eb1d9c",
-		"type": "inject",
-		"z": "a899a7cb.ba5888",
-		"name": "Reset",
-		"topic": "Reset",
-		"payload": "{\"_msgid\":\"857729df.bc54f8\",\"topic\":\"Reset\",\"payload\":[{\"topic\":\"Values\",\"data\":[]},{\"topic\":\"Reference\",\"data\":[]}],\"action\":\"load\"}",
-		"payloadType": "json",
-		"repeat": "",
-		"crontab": "",
-		"once": false,
-		"x": 483.4500427246094,
-		"y": 1096.1166687011719,
-		"wires": [
-			[
-				"9714ce52.b3eb5",
-				"bf442423.a1eda8"
-			]
-		]
-	},
-	{
-		"id": "ee51c2d7.9f487",
-		"type": "inject",
-		"z": "a899a7cb.ba5888",
-		"name": "",
-		"topic": "load",
-		"payload": "[{\"topic\":\"Values\",\"data\":[{\"x\":0,\"y\":0},{\"x\":1,\"y\":2},{\"x\":2,\"y\":5}]},{\"topic\":\"Reference\",\"data\":[{\"x\":0,\"y\":0},{\"x\":10,\"y\":10}]}]",
-		"payloadType": "json",
-		"repeat": "",
-		"crontab": "",
-		"once": true,
-		"x": 483.4500427246094,
-		"y": 1176.1166687011719,
-		"wires": [
-			[
-				"1f32d121.0cc83f"
-			]
-		]
-	},
-	{
-		"id": "1f32d121.0cc83f",
-		"type": "change",
-		"z": "a899a7cb.ba5888",
-		"name": "",
-		"rules": [
-			{
-				"t": "set",
-				"p": "action",
-				"pt": "msg",
-				"to": "load",
-				"tot": "str"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 673.4500427246094,
-		"y": 1176.1166687011719,
-		"wires": [
-			[
-				"bf442423.a1eda8",
-				"9714ce52.b3eb5"
+				"c5ad9bfc.2090f8",
+				"c249327a.5d61f"
 			]
 		]
 	},
@@ -2113,7 +1893,7 @@
 		"type": "debug",
 		"z": "4456c24d.1b6d3c",
 		"name": "",
-		"active": true,
+		"active": false,
 		"console": "false",
 		"complete": "true",
 		"x": 650,
@@ -2543,10 +2323,10 @@
 		"nodata": "",
 		"dot": false,
 		"ymin": "0.1",
-		"ymax": "0.5",
-		"removeOlder": 1,
+		"ymax": "1",
+		"removeOlder": "30",
 		"removeOlderPoints": "",
-		"removeOlderUnit": "3600",
+		"removeOlderUnit": "60",
 		"cutout": 0,
 		"colors": [
 			"#1f77b4",
@@ -2571,10 +2351,10 @@
 		"type": "debug",
 		"z": "a99e64a2.d57e48",
 		"name": "",
-		"active": true,
+		"active": false,
 		"console": "false",
-		"complete": "false",
-		"x": 1170,
+		"complete": "true",
+		"x": 1210,
 		"y": 100,
 		"wires": []
 	},
@@ -2589,39 +2369,11 @@
 		"repeat": "",
 		"crontab": "",
 		"once": true,
-		"x": 90,
-		"y": 60,
+		"x": 130,
+		"y": 480,
 		"wires": [
 			[
-				"9243949b.c64a08",
-				"b33254ca.2cc7f8",
-				"1978d9e3.32c6f6"
-			]
-		]
-	},
-	{
-		"id": "9243949b.c64a08",
-		"type": "moment",
-		"z": "a99e64a2.d57e48",
-		"name": "",
-		"topic": "",
-		"input": "",
-		"inputType": "msg",
-		"inTz": "",
-		"adjAmount": 0,
-		"adjType": "days",
-		"adjDir": "add",
-		"format": "",
-		"locale": "",
-		"output": "",
-		"outputType": "msg",
-		"outTz": "",
-		"x": 280,
-		"y": 40,
-		"wires": [
-			[
-				"500867d6.47fc68",
-				"a85a6a5e.bd5a28"
+				"f468c3a6.e6b17"
 			]
 		]
 	},
@@ -2661,10 +2413,10 @@
 		"fieldType": "msg",
 		"format": "handlebars",
 		"syntax": "mustache",
-		"template": "SELECT timestamp,loadavg_1,loadavg_2,loadavg_0 FROM measures\nWHERE timestamp > to_timestamp({{payload.date_from}}) AT TIME ZONE 'UTC'\nAND\t  timestamp < to_timestamp({{payload.date_to}}) AT TIME ZONE 'UTC'",
+		"template": "SELECT to_char(timestamp, 'YYYY-MM-dd\"T\"HH12:MI:SS') as timestamp,loadavg_1,loadavg_2,loadavg_0 FROM measures\nWHERE timestamp > to_timestamp({{payload.date_from}}) AT TIME ZONE 'UTC'\nAND\t  timestamp < to_timestamp({{payload.date_to}}) AT TIME ZONE 'UTC'\nLIMIT 100",
 		"output": "str",
-		"x": 790,
-		"y": 80,
+		"x": 710,
+		"y": 200,
 		"wires": [
 			[
 				"8f980f87.c9d3a",
@@ -2680,11 +2432,12 @@
 		"name": "",
 		"output": true,
 		"outputs": 1,
-		"x": 960,
-		"y": 80,
+		"x": 880,
+		"y": 200,
 		"wires": [
 			[
-				"85d9bbbc.6d2488"
+				"85d9bbbc.6d2488",
+				"ca18f7.c7fae708"
 			]
 		]
 	},
@@ -2696,7 +2449,7 @@
 		"func": "\nmsg.payload.date_from=Math.round(flow.get('date_from'))/1000 || 0\nmsg.payload.date_to=Math.round(flow.get('date_to'))/1000 || 0\nreturn msg",
 		"outputs": 1,
 		"noerr": 0,
-		"x": 730,
+		"x": 690,
 		"y": 280,
 		"wires": [
 			[
@@ -2755,22 +2508,343 @@
 		]
 	},
 	{
-		"id": "6aa009a5.b19ea8",
+		"id": "ca18f7.c7fae708",
+		"type": "function",
+		"z": "a99e64a2.d57e48",
+		"name": "chart data",
+		"func": "measures=[\"loadavg_0\",\"loadavg_1\",\"loadavg_2\"]\n\npl=[]\nfor (m=0; m<measures.length; m++){\n    key=measures[m]\n    t={\"topic\": key, \"data\":[]}\n    pl.push(t)\n}\n\nfor (i=0; i<msg.payload.length; i++){\n    for (m=0; m<measures.length; m++){\n        key=measures[m]\n        l={\"x\":msg.payload[i].timestamp, y:msg.payload[i][key]}\n        //l={\"x\":Math.random().toString() , \"y\":msg.payload[i][key]}\n        pl[m].data[i]=l\n    }\n}\nmsg2={\n    \"action\" : \"load\",\n    \"payload\" : pl\n}\nreturn msg2;",
+		"outputs": 1,
+		"noerr": 0,
+		"x": 1040,
+		"y": 200,
+		"wires": [
+			[
+				"85d9bbbc.6d2488",
+				"daa1d85c.b13c68"
+			]
+		]
+	},
+	{
+		"id": "94e66ea8.7cc76",
+		"type": "inject",
+		"z": "a99e64a2.d57e48",
+		"name": "",
+		"topic": "",
+		"payload": "2017-01-01T00:00:00.000Z",
+		"payloadType": "str",
+		"repeat": "",
+		"crontab": "",
+		"once": true,
+		"x": 130,
+		"y": 60,
+		"wires": [
+			[
+				"500867d6.47fc68"
+			]
+		]
+	},
+	{
+		"id": "b32b83e5.050a1",
+		"type": "moment",
+		"z": "a99e64a2.d57e48",
+		"name": "",
+		"topic": "",
+		"input": "",
+		"inputType": "msg",
+		"inTz": "",
+		"adjAmount": 0,
+		"adjType": "days",
+		"adjDir": "add",
+		"format": "",
+		"locale": "",
+		"output": "",
+		"outputType": "msg",
+		"outTz": "",
+		"x": 440,
+		"y": 40,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "f468c3a6.e6b17",
+		"type": "moment",
+		"z": "a99e64a2.d57e48",
+		"name": "",
+		"topic": "",
+		"input": "payload",
+		"inputType": "msg",
+		"inTz": "UTC",
+		"adjAmount": 0,
+		"adjType": "days",
+		"adjDir": "add",
+		"format": "",
+		"locale": "POSIX",
+		"output": "payload",
+		"outputType": "msg",
+		"outTz": "UTC",
+		"x": 320,
+		"y": 480,
+		"wires": [
+			[
+				"a85a6a5e.bd5a28"
+			]
+		]
+	},
+	{
+		"id": "daa1d85c.b13c68",
+		"type": "change",
+		"z": "a99e64a2.d57e48",
+		"name": "",
+		"rules": [
+			{
+				"t": "set",
+				"p": "action",
+				"pt": "msg",
+				"to": "load",
+				"tot": "str"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 1240,
+		"y": 200,
+		"wires": [
+			[
+				"b658704b.61b0e"
+			]
+		]
+	},
+	{
+		"id": "b658704b.61b0e",
 		"type": "ui_template",
 		"z": "a99e64a2.d57e48",
-		"group": "6b686bdf.fa8074",
-		"name": "Chart.js example",
-		"order": 9,
-		"width": "8",
-		"height": "8",
-		"format": "\n<script src=\"/Chart.bundle.min.js\"></script>\n<canvas id=\"myChartSimple1\" width=\"300\" height=\"300\"></canvas>\n<script>\n(function() {\n    var chartID = \"myChartSimple1\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"Values\",    // used here not by chart.js\n                label: \"Actual Values\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                showLine:false,\n                data: []  // data is written here later\n            }, {\n                topic: \"Reference\",    // used here not by chart.js\n                label: \"Reference\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#ff0000\",\n                pointRadius: 0,\n                pointHoverRadius: 5,\n                pointBorderColor: \"#ff0000\",\n                pointBackgroundColor: \"#ff0000\",\n                backgroundColor:  \"#ff0000\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                    type: 'linear',\n                    position: 'bottom',\n                    ticks: {\n                         min: 75.3,\n                        max: 75.5,\n                        stepSize: 0.1\n                    },\n\t\t\t\t\tscaleLabel: {\n                    \tdisplay: true,\n                    \tlabelString: \"Actual Values\"\n                        }\n                    }\n                ],\n                yAxes: [{\n                    id: \"1\",\n                    ticks: {\n                         min: 75.3,\n                        max: 75.5,\n                        stepSize: 0.1\n                    },\n    \t\t\t\tscaleLabel: {\n                    \tdisplay: true,\n                    \tlabelString: \"Predicted Values\"\n                        }\n                }]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                if (typeof msg.chart_min != 'undefined') {\n                    console.log(\"-------chartmin=\" + msg.chart_min)\n                }\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n    };\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
+		"group": "90b744ed.ba1028",
+		"name": "Timeseries",
+		"order": 1,
+		"width": "21",
+		"height": "14",
+		"format": "\n<canvas id=\"tet\" width=\"500\" height=\"250\"></canvas>\n<script>\n(function() {\n    var chartID = \"tet\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"loadavg_0\",    // used here not by chart.js\n                label: \"loadavg_0\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                showLine: true,\n                data: []  // data is written here later\n            }, {\n                topic: \"loadavg_1\",    // used here not by chart.js\n                label: \"loadavg_1\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#1E86A8\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#1E86A8\",\n                pointBackgroundColor: \"#1E86A8\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }, {\n                topic: \"loadavg_2\",    // used here not by chart.js\n                label: \"loadavg_2\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#8FDBC0\",\n                pointRadius: 1,\n                pointHoverRadius: 1,\n                pointBorderColor: \"#8FDBC0\",\n                pointBackgroundColor: \"#8FDBC0\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                    type: 'time',\n                    position: 'bottom'\n                    }\n                ],\n                yAxes: [{\n                    id: \"1\",\n                    ticks: {\n                        min: 0,\n                        max: 0.6,\n                        stepSize: 0.2\n                    }\n                }, 1]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n    };\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
 		"storeOutMessages": false,
 		"fwdInMessages": false,
 		"templateScope": "local",
-		"x": 1190,
-		"y": 260,
+		"x": 1490,
+		"y": 240,
 		"wires": [
 			[]
+		]
+	},
+	{
+		"id": "5eb1c842.739de8",
+		"type": "inject",
+		"z": "a899a7cb.ba5888",
+		"name": "",
+		"topic": "",
+		"payload": "[{\"topic\":\"Values\",\"data\":[{\"y\":\"75.41\",\"x\":\"75.37\"},{\"y\":\"75.41\",\"x\":\"75.37\"},{\"y\":\"75.41\",\"x\":\"75.42\"},{\"y\":\"75.41\",\"x\":\"75.42\"},{\"y\":\"75.41\",\"x\":\"75.43\"},{\"y\":\"75.41\",\"x\":\"75.43\"},{\"y\":\"75.39\",\"x\":\"75.45\"},{\"y\":\"75.39\",\"x\":\"75.45\"},{\"y\":\"75.39\",\"x\":\"75.42\"},{\"y\":\"75.39\",\"x\":\"75.42\"}]},{\"topic\":\"Reference\",\"data\":[{\"x\":70,\"y\":70},{\"x\":80,\"y\":80}]}]",
+		"payloadType": "json",
+		"repeat": "",
+		"crontab": "",
+		"once": false,
+		"x": 236.00000381469727,
+		"y": 854.2500133514404,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "8d974615.1b7308",
+		"type": "ui_template",
+		"z": "a899a7cb.ba5888",
+		"group": "6b686bdf.fa8074",
+		"name": "scatter plot",
+		"order": 9,
+		"width": "12",
+		"height": "10",
+		"format": "<script src=\"/Chart.bundle.min.js\"></script>\n<canvas id=\"scatter_plot\" width=\"200\" height=\"150\"></canvas>\n<script>\n(function() {\n    var chartID = \"scatter_plot\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"Values\",    // used here not by chart.js\n                label: \"\",\n                yAxisID: \"2\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 1,\n                pointHoverRadius: 5,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                showLine: false,\n                data: []  // data is written here later\n            }, {\n                topic: \"Reference\",    // used here not by chart.js\n                label: \"\",\n                yAxisID: \"2\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#ff0000\",\n                pointRadius: 5,\n                pointHoverRadius: 5,\n                pointBorderColor: \"#ff0000\",\n                pointBackgroundColor: \"#ff0000\",\n                backgroundColor:  \"#ff0000\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                     scaleLabel: {\n                        display: true,\n                        labelString: 'Actual'\n                      },\n                    type: 'linear',\n                    position: 'bottom',\n                    ticks: {\n                        min: 75.3,\n                        max: 75.5,\n                        stepSize: 0.2\n                        }\n                    }\n                ],\n                yAxes: [{\n                     scaleLabel: {\n                        display: true,\n                        labelString: 'Prediction'\n                      },\n                    id: \"2\",\n                    ticks: {\n                        min: 75.3,\n                        max: 75.5,\n                        stepSize: 0.2\n                    }\n                }, 1]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n    };\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
+		"storeOutMessages": false,
+		"fwdInMessages": false,
+		"templateScope": "local",
+		"x": 1086.000015258789,
+		"y": 844.2500123977661,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "c249327a.5d61f",
+		"type": "template",
+		"z": "a899a7cb.ba5888",
+		"name": "SQL scatter",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "text",
+		"syntax": "mustache",
+		"template": "SELECT round(cast(estimated_memusage as numeric),2) as y, memusage as x \nFROM measures_predictions \nLIMIT 1000",
+		"output": "str",
+		"x": 423.5,
+		"y": 817,
+		"wires": [
+			[
+				"37524a2d.60ade6"
+			]
+		]
+	},
+	{
+		"id": "dec6c079.7c1ba",
+		"type": "postgres",
+		"z": "cc040e90.f2572",
+		"postgresdb": "70ac804.af5e28",
+		"name": "",
+		"output": true,
+		"outputs": 1,
+		"x": 747.5000152587891,
+		"y": 518.7500076293945,
+		"wires": [
+			[
+				"ba87d97a.fb4908",
+				"303852ca.1de8ee"
+			]
+		]
+	},
+	{
+		"id": "46a131bf.5109e",
+		"type": "template",
+		"z": "cc040e90.f2572",
+		"name": "single prediction",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "text",
+		"syntax": "plain",
+		"template": "DROP TABLE IF EXISTS prediction_results_single;\nSELECT forest_predict('train_output',\n                           'ml_source_limit_1',\n                           'prediction_results_single',\n                           'response');\n\nSELECT timestamp, estimated_memusage as prediction from prediction_results_single;",
+		"output": "str",
+		"x": 529.3750381469727,
+		"y": 520.0000076293945,
+		"wires": [
+			[
+				"dec6c079.7c1ba",
+				"50fa9308.47ad6c"
+			]
+		]
+	},
+	{
+		"id": "4eb4972a.835da8",
+		"type": "inject",
+		"z": "cc040e90.f2572",
+		"name": "",
+		"topic": "",
+		"payload": "",
+		"payloadType": "date",
+		"repeat": "6",
+		"crontab": "",
+		"once": false,
+		"x": 311.2500114440918,
+		"y": 520.0000076293945,
+		"wires": [
+			[
+				"46a131bf.5109e"
+			]
+		]
+	},
+	{
+		"id": "b15725e.56213d8",
+		"type": "ui_text",
+		"z": "cc040e90.f2572",
+		"group": "359f8ee7.dcef32",
+		"order": 1,
+		"width": 0,
+		"height": 0,
+		"name": "Prediction Text",
+		"label": "Prediction",
+		"format": "{{msg.payload}}",
+		"layout": "col-center",
+		"x": 1276.2500228881836,
+		"y": 525.0000076293945,
+		"wires": []
+	},
+	{
+		"id": "50fa9308.47ad6c",
+		"type": "debug",
+		"z": "cc040e90.f2572",
+		"name": "",
+		"active": true,
+		"console": "false",
+		"complete": "false",
+		"x": 1266.875015258789,
+		"y": 668.7500095367432,
+		"wires": []
+	},
+	{
+		"id": "ba87d97a.fb4908",
+		"type": "change",
+		"z": "cc040e90.f2572",
+		"name": "",
+		"rules": [
+			{
+				"t": "set",
+				"p": "payload",
+				"pt": "msg",
+				"to": "payload[1].prediction",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 961.8750152587891,
+		"y": 520.0000085830688,
+		"wires": [
+			[
+				"50fa9308.47ad6c",
+				"b15725e.56213d8"
+			]
+		]
+	},
+	{
+		"id": "93adecba.2e7bd",
+		"type": "ui_text",
+		"z": "cc040e90.f2572",
+		"group": "359f8ee7.dcef32",
+		"order": 1,
+		"width": 0,
+		"height": 0,
+		"name": "Prediction Text",
+		"label": "Prediction Timestamp",
+		"format": "{{msg.payload}}",
+		"layout": "col-center",
+		"x": 1277.5,
+		"y": 562.5,
+		"wires": []
+	},
+	{
+		"id": "303852ca.1de8ee",
+		"type": "change",
+		"z": "cc040e90.f2572",
+		"name": "",
+		"rules": [
+			{
+				"t": "set",
+				"p": "payload",
+				"pt": "msg",
+				"to": "payload[1].timestamp",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 967.5,
+		"y": 566.25,
+		"wires": [
+			[
+				"93adecba.2e7bd"
+			]
 		]
 	}
 ]
