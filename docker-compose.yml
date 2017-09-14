@@ -2,9 +2,9 @@ version: '3'
 services:
   db:
     image: "leanbi/madlib_postgres"
-    environment:
-            POSTGRES_USER: "iot"
-            POSTGRES_PASSWORD: "iot"
+ #   environment:
+ #           POSTGRES_USER: "iot"
+ #           POSTGRES_PASSWORD: "iot"
     ports:
      - "11000:5432"
     networks:
