@@ -1,9 +1,3 @@
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 9.6.3
--- Dumped by pg_dump version 9.6.3
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -14,9 +8,7 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- Name: bi; Type: SCHEMA; Schema: -; Owner: iot
---
+
 CREATE USER iot WITH PASSWORD 'iot';
 
 CREATE SCHEMA bi;
