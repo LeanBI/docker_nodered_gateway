@@ -9,12 +9,10 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 
-CREATE USER iot WITH PASSWORD 'iot';
+CREATE USER iot WITH PASSWORD 'iot' CREATEDB;
+SET ROLE iot
 
-CREATE SCHEMA bi;
 
-
-ALTER SCHEMA bi OWNER TO iot;
 
 
 CREATE TABLE evaluation_confusion (
@@ -26,7 +24,6 @@ CREATE TABLE evaluation_confusion (
 
 ALTER TABLE evaluation_confusion OWNER TO iot;
 
--
 
 CREATE TABLE measures (
     "timestamp" timestamp without time zone,
