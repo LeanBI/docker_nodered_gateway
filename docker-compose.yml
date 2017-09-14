@@ -21,10 +21,10 @@ services:
         aliases:
         - nodered
   
-  openscoring:
-    image: "jpmml/openscoring"
-    ports:
-     - "11002:8080"
+#  openscoring:
+#    image: "jpmml/openscoring"
+#    ports:
+#     - "11002:8080"
      
   pgadmin:
     image: "meedan/pgadmin"
@@ -37,16 +37,6 @@ services:
     volumes:
       - d:/pgadmin:/home/pgadmin
 
-  jasper:
-    image: bitnami/jasperreports:latest
-    ports:
-      - 80:8080
-    environment:
-      - SMTP_HOST=smtp.gmail.com
-      - SMTP_PORT=587
-      - SMTP_EMAIL=your_email@gmail.com
-      - SMTP_USER=your_email@gmail.com
-      - SMTP_PASSWORD=your_password
       
 networks:
   gateway:
