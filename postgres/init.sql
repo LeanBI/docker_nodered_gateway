@@ -10,7 +10,7 @@ SET row_security = off;
 
 
 CREATE USER iot WITH PASSWORD 'iot' CREATEDB;
-SET ROLE iot
+SET ROLE iot;
 
 
 
