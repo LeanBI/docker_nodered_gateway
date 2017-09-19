@@ -14,12 +14,13 @@ SET ROLE iot;
 
 
 
-CREATE TABLE public.test
-(
-)
-WITH (
-    OIDS = FALSE
-);
+CREATE DATABASE iot
+    WITH 
+    OWNER = iot
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    CONNECTION LIMIT = -1;
 
 CREATE TABLE evaluation_confusion (
     row_id bigint,
