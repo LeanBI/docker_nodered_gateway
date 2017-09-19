@@ -12,6 +12,15 @@ SET row_security = off;
 CREATE USER iot WITH PASSWORD 'iot' CREATEDB;
 SET ROLE iot;
 
+
+
+CREATE TABLE public.test
+(
+)
+WITH (
+    OIDS = FALSE
+);
+
 CREATE TABLE evaluation_confusion (
     row_id bigint,
     class double precision,
