@@ -12,7 +12,14 @@ SET row_security = off;
 CREATE USER iot WITH PASSWORD 'iot' CREATEDB;
 SET ROLE iot;
 
-
+CREATE DATABASE iot
+    WITH 
+    OWNER = iot
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
 
 
 CREATE TABLE evaluation_confusion (

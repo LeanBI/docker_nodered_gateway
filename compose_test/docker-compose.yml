@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: "leanbi/madlib_postgres"
+ #   environment:
+ #           POSTGRES_USER: "iot"
+ #           POSTGRES_PASSWORD: "iot"
+    ports:
+     - "11000:5432"
+    networks:
+     gateway:
+        aliases:
+        - db
+
+  pgadmin:
+    image: "meedan/pgadmin"
+    ports: 
+     - "11003:5050"
+    networks:
+     gateway:
+        aliases:
+        - pgadmin
+    volumes:
+      - d:/pgadmin:/home/pgadmin
+
+      
+networks:
+  gateway:
+#docker rm -f  $(docker ps -a -q -f name=dockernodered* )
