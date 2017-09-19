@@ -1,0 +1,47 @@
+version: '3'
+services:
+  db:
+    image: "leanbi/madlib_postgres"
+ #   environment:
+ #           POSTGRES_USER: "iot"
+ #           POSTGRES_PASSWORD: "iot"
+    ports:
+     - "11000:5432"
+    networks:
+     gateway:
+        aliases:
+        - db
+     
+  nodered:
+    image: "leanbi/docker_nodered_gateway_nodered:latest"
+    ports:
+     - "11001:1880"
+    networks:
+     gateway:
+        aliases:
+        - nodered
+  
+  openscoring:
+    image: "jpmml/openscoring"
+    ports:
+     - "11002:8080"
+    networks:
+     gateway:
+        aliases:
+        - scoring
+             
+  pgadmin:
+    image: "meedan/pgadmin"
+    ports: 
+     - "11003:5050"
+    networks:
+     gateway:
+        aliases:
+        - pgadmin
+    volumes:
+      - d:/pgadmin:/home/pgadmin
+
+      
+networks:
+  gateway:
+#docker rm -f  $(docker ps -a -q -f name=dockernodered* )
